@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  react:
+    build:
+      dockerfile: Dockerfile
+    image: node:16-alpine3.15
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
