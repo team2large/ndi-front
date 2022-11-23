@@ -3,9 +3,39 @@ version: '3.7'
 services:
   react:
     build:
+      context: .
       dockerfile: Dockerfile
     image: node:16-alpine3.15
     volumes:
       - .:/app
     ports:
       - 3000:3000
+    environment:
+      - WDS_SOCKET_PORT=0 # https://github.com/facebook/create-react-app/issues/11779
+
+@frontend @backend 
+Vous avez vos roles pour la ndi, si vous voulez changer manifestez vous.
+
+@frontend
+Voici les technos/outils que nous allons utiliser :
+- React : https://www.youtube.com/watch?v=Tn6-PIqc4UM
+- Sass : https://www.youtube.com/watch?v=akDIJa0AP5c
+
+Le minimum technique a connaitre :
+- useState / useEffect et les autres hooks de base
+- html/css
+- commandes de base de git
+- npm
+
+@backend
+Voici les technos/outils que nous allons utiliser :
+- Typescript : https://www.youtube.com/watch?v=zQnBQ4tB3ZA
+- Express : https://www.youtube.com/watch?v=-MTSQjw5DrM
+- Prisma : https://www.youtube.com/watch?v=rLRIB6AF2Dg
+
+Le minimum technique a connaitre :
+- schema prisma
+- interfaces / typage typescript
+- routes express GET/POST/...
+- commandes de base de git
+- npm
