@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: node:16-alpine3.15
+    ports:
+      - 3456:3000
