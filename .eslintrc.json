@@ -353,16 +353,7 @@
             2,
             "always"
         ],
-        "import/no-extraneous-dependencies": 2,
-        "import/extensions": [
-            "error",
-            "never",
-            {
-                "svg": "always",
-                "png": "always",
-                "json": "always"
-            }
-        ],
+        "import/no-extraneous-dependencies": 2, 
         "import/no-named-as-default-member": 1,
         "import/order": [
             "error"

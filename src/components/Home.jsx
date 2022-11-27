@@ -1,14 +1,14 @@
+import styles from 'assets/style/home.module.scss';
 import logo from 'logo.svg';
 
 const Home = () => (
-  <div className='App'>
-    <header className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
+  <div className={styles.home}>
+    <header>
+      <img src={logo} className={styles.homeLogo} alt='logo' />
       <p>
-        Edit <code>src/App.js</code> and save to reload.
+        Edit <code>src/components/home.js</code> and save to reload.
       </p>
       <a
-        className='App-link'
         href='https://reactjs.org'
       >
         idwwifhihdehajfhseigue
