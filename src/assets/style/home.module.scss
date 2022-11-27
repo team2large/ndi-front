@@ -1,0 +1,46 @@
+@use "assets/style/utils";
+@import "assets/style/utils";
+
+.home {
+  text-align: center;
+
+  // Le header enfant direct de .app
+  > header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+
+    // L'image enfant direct de .app > header
+    > img {
+      height: 40vmin;
+      pointer-events: none;
+    }
+
+    > a {
+      color: #61dafb;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .homeLogo {
+    opacity: 0;
+    animation: App-logo-spin infinite 5s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,14 @@
+// Fichir contentant les mixins et variables utilisés dans le projet
+
+// Variables
+$mainColor: #2c3e50;
+$secondarColor: #e74c3c;
+$tertiaryColor: #ecf0f1;
+
+// Mixins
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
