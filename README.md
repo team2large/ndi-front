@@ -3,7 +3,7 @@
 #### Environnement local
 
 - Node 16
-- `npm i` pour installer les dependances
+- `npm i` pour installer les dependances 
 - `npm run start`
 
 #### Environnement virtuel
