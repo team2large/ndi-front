@@ -11,6 +11,9 @@
 - Docker
 - `npm run docker`
 
+### Projet
+
+- Tous les paths sont absolus et partent du dossier src. NE PAS UITLISER DE PATH RELATIF
 ### Linting
 
 - Un pre-commit hook est configuré pour détecter les erreurs de linting avant chaque commit.
