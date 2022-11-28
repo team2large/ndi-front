@@ -7,4 +7,6 @@ COPY . /app
 
 EXPOSE 3000
 
-CMD ["npm", "ci", "&&", "npm", "start" ]
+RUN npm ci
+
+CMD [ "npm", "run", "start:install" ]

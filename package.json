@@ -15,8 +15,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:install": "npm ci && react-scripts start",
     "build": "react-scripts build",
-    "docker": "docker-compose up",
+    "docker": "docker-compose -f docker-compose.dev.yml up --build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{js,jsx}\"",
