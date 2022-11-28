@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from 'assets/style/home.module.scss';
 import logo from 'logo.svg';
 
@@ -8,11 +9,9 @@ const Home = () => (
       <p>
         Edit <code>src/components/home.js</code> and save to reload.
       </p>
-      <a
-        href='https://reactjs.org'
-      >
-        HTTP 413 Team 2 Large
-      </a>
+      <Link to='/test'>
+        HTTP 413 Team 2 Large (Cliquez)
+      </Link>
     </header>
   </div>
 );
