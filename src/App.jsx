@@ -1,11 +1,11 @@
 import Home from 'components/Home';
-import Test from 'components/Test';
+import Register from 'components/Register';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => (
   <Routes>
     <Route path='/' element={<Home/>}/>
-    <Route path='/test' element={<Test/>}/>
+    <Route path='/register' element={<Register />}/>
   </Routes>
 );
 

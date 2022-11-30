@@ -9,8 +9,8 @@ const Home = () => (
       <p>
         Edit <code>src/components/home.js</code> and save to reload.
       </p>
-      <Link to='/test'>
-        HTTP 413 Team 2 Large (Cliquez)
+      <Link to='/register'>
+        Creer un compte (Cliquez)
       </Link>
     </header>
   </div>
