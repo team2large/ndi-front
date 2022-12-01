@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": true,
+        "srcImg": [
+            "/src/images/condoms/capote_pas_utilise_orange.png",
+            "/src/images/condoms/capote_pas_utilise_verte.png",
+            "/src/images/condoms/sachet_clean.png",
+            "/src/images/condoms/sachet_clean1.png"
+                ],
+        "reasonNotValid": null
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "/src/images/condoms/capote_cassee_bleue.png",
+            "/src/images/condoms/capote_cassee.png",
+            "/src/images/condoms/sachet_ouvert.png"
+        ],
+        "reasonNotValid": "Le préservatif est craqué"
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "/src/images/condoms/capote_multicolore.png"
+                ],
+        "reasonNotValid": "Les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable."
+    },
+    {
+        "name": "Préservatif taille énorme",
+        "isValid": false,
+        "srcImg": ["/src/images/condoms/capote_XXXXXXXL.png"],
+        "reasonNotValid": "Prendre un préservatif de taille trop grande annule son effet"
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "/src/images/condoms/capote_utilise_orange.png",
+            "/src/images/condoms/capote_utilise_verte.png"
+                ],
+        "reasonNotValid": "Il ne faut pas réutiliser un préservatif déja utilisé."
+    }
+]
