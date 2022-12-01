@@ -64,6 +64,9 @@ const Home = () => {
         </div>
         <footer>
           <p>© 2022 - HTTP 413 - Team Too Large</p>
+          <Link to={'/admin-auth'}>
+            <p>Le bo bouton</p>
+          </Link>
         </footer>
       </main>
     </div>
