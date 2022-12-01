@@ -1,11 +1,9 @@
-import Home from 'components/Home';
-import Register from 'components/Register';
+import CardsGame from 'pages/CardsGame';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => (
   <Routes>
-    <Route path='/' element={<Home/>}/>
-    <Route path='/register' element={<Register />}/>
+    <Route path='/' element={<CardsGame />} />
   </Routes>
 );
 

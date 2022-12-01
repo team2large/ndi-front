@@ -1,0 +1,16 @@
+{
+    "préservatifs": [
+        {
+            "nom": "Préservatifs qu'il faut",
+            "isGood": true,
+            "date de péremption": "12/10/2023",
+            "norme": true
+        },
+        {
+            "nom": "Capote parfaite",
+            "isGood": true,
+            "date de péremption": "12/10/2023",
+            "norme": true
+        }
+    ]
+}
