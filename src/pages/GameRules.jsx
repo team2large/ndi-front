@@ -8,11 +8,14 @@ const GameRules = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
 
-  if (!Object.keys(gameRulesSlugToFileMapping).includes(gameId)) {
+ 
+  
+  useEffect(() => {
+   if (!Object.keys(gameRulesSlugToFileMapping).includes(gameId)) {
     // On vérifie que le jeu existe. Sinon on le redirige à l'accueil
-    React.useEffect(() => navigate('/'));
-    return;
+    navigate('/');
   }
+  }, []);
 
   const gameRuleImageURI = gameRulesSlugToFileMapping[gameId];
 
