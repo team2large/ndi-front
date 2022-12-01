@@ -1,0 +1,38 @@
+@use "assets/style/utils";
+@import "assets/style/utils";
+
+.home {
+    min-height: 100vh;
+    background-color: #282c34;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    div:first-child > img {
+        width: auto;
+        background-color: #fff;
+        border-radius: 25px;
+        max-height: 80vh;
+    }
+
+    div:last-child {
+        /*background-color: red;
+        padding: 0 12.5px 12.5px;
+        border-radius: 25px;*/
+        text-align: center;
+    }
+    div:last-child:hover {
+        cursor: pointer;
+    }
+
+    div:last-child img {
+        position: relative;
+        top: 12.5px;
+    }
+}
