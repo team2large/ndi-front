@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import GameCard from './GameCard';
 import styles from 'assets/style/home.module.scss';
 
 const Home = () => {
@@ -13,26 +14,26 @@ const Home = () => {
   const games = [
     {
       id: 0,
+      slug: 'depisteur',
       name: 'Game 1',
-      coverImage: 'https://picsum.photos/600/400?1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque.',
     },
     {
       id: 1,
+      slug: 'ist_clicker',
       name: 'Game 2',
-      coverImage: 'https://picsum.photos/600/400?2',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros.',
     },
     {
       id: 2,
+      slug: 'memory_capote',
       name: 'Game 3',
-      coverImage: 'https://picsum.photos/600/400?3',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque mollis consequat imperdiet',
     },
     {
       id: 3,
+      slug: 'storytelling',
       name: 'Game 4',
-      coverImage: 'https://picsum.photos/600/400?4',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat',
     }
   ];
@@ -49,11 +50,7 @@ const Home = () => {
         <div className={styles.container}>
           <div className={styles.games}>
             {games.map((game, index) => (
-              <Link className={styles.game} key={game.id} style={{ backgroundColor: palette[index % palette.length] }} to={`/game/${index}`}>
-                <img src={game.coverImage} alt={game.name} />
-                <h3>{game.name}</h3>
-                <p>{game.description}</p>
-              </Link>
+              <GameCard key={game.id} color={palette[index % palette.length]} {...game} />
             ))}
           </div>
         </div>
