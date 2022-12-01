@@ -2,45 +2,76 @@
 @import "assets/style/utils";
 
 .home {
-  text-align: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
 
-  // Le header enfant direct de .app
-  > header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  header {
+    text-align: center;
+    padding: 20px;
 
-    // L'image enfant direct de .app > header
-    > img {
-      height: 40vmin;
-      pointer-events: none;
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 96px;
+        margin-right: 10px;
+      }
     }
 
-    > a {
-      color: #61dafb;
+    h2 {
+      font-size: 2rem;
+      margin: 0;
     }
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .homeLogo {
-    opacity: 0;
-    animation: App-logo-spin infinite 5s linear;
-  }
-}
+  .container {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 10px 40px;
 
-@keyframes App-logo-spin {
-  from {
-    opacity: 0;
-    transform: rotate(0deg);
+    .content {
+      padding: 20px;
+      width: 100%;
+      max-width: 1700px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      border-radius: 20px;
+      background-color: #484a4f;
+      color: #ffffff;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        border-bottom: 1px dotted #ffffff;
+      }
+    }
   }
-  to {
-    opacity: 1;
-    transform: rotate(360deg);
+
+  .games {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 20px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
   }
 }
