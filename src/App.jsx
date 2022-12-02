@@ -3,6 +3,8 @@ import Home from 'pages/Home';
 import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';
 import { Route, Routes } from 'react-router-dom';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import GameRules from './pages/GameRules';
 import Admin from './pages/Admin';
 import Game from './pages/Game';
@@ -11,7 +13,7 @@ import DepisteurGame from './pages/DepisteurGame';
 
 const App = () => (
   <Routes>
-    <Route path='/' element={<Home />} />
+    <Route path='/' element={<DndProvider backend={HTML5Backend}><Home /></DndProvider>} />
     <Route path='/register' element={<Register />} />
     <Route path='/games/:gameId' element={<GameRules />}/>
     <Route path='/games/:gameId/play' element={<Game />} />
@@ -21,5 +23,6 @@ const App = () => (
     <Route path='/admin/login' element={<AdminAuth />} />
     <Route path='/games/depisteur/play' element={<DepisteurGame />} />
   </Routes>
+
 );
 export default App;

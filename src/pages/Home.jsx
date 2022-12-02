@@ -2,6 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
 import Modal from 'components/Modal';
+import { useDrag, useDrop } from 'react-dnd';
+import ReactConfetti from 'react-confetti';
 import GameCard from '../components/GameCard';
 import styles from 'assets/style/home.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
@@ -10,20 +12,49 @@ import virusStyles from 'assets/style/homeVirus.module.scss';
 const Home = () => {
   const { games } = useContext(AppContext);
   const modalRef = useRef();
+  const [confetti, setConfetti] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
     document.addEventListener('mousemove', (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     });
   }, []);
 
+  const [{ opacity }, dragRef] = useDrag(
+    () => ({
+      type: 'CAPOTE',
+      item: { name: 'capote' },
+      collect: (monitor) => ({
+        opacity: monitor.isDragging() ? 0.5 : 1,
+      }),
+
+    }));
+
+  const [collectedProps, drop] = useDrop(() => ({
+    accept: 'CAPOTE',
+    drop: (item, monitor) => {
+      setConfetti(true);
+      modalRef.current.open('Félicitations !', 'Bravo, vous avez trouvé l\'easter egg !');
+    },
+  }));
+
+  useEffect(() => {
+    if (confetti) {
+      setTimeout(() => {
+        setConfetti(false);
+      }, 10000);
+    }
+  }, [confetti]);
+
   return (
     <div className={mainStyles.main}>
       <main>
+        {confetti && <ReactConfetti/>}
         <header>
+          <img style={{ opacity }}ref={dragRef} src='/img/games/depisteur/capote_normale_orange.png' alt='Préservatif' />
           <h1>No mISTery</h1>
+          <img ref={drop} src='/img/games/depisteur/virus.png' alt='Infection Sexuellement Transmissible' />
         </header>
         <div className={styles.container}>
           <div className={styles.games}>
@@ -34,7 +65,7 @@ const Home = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.content}>
-            <h1>Bienvenue sur WEBSITE NAME !</h1>
+            <h1>Bienvenue sur No mISTery !</h1>
             <p>
               Parlons d&apos;un sujet tabou et pas très fun : les IST !
               Aujourd&apos;hui le véritable problème avec les infections sexuellement transmissibles ce n&apos;est pas les soins mais la prévention,
@@ -64,7 +95,6 @@ const Home = () => {
           <img className={virusStyles.virus} id={virusStyles.v7} src={`/img/games/ist_clicker/enemies/hpv.png`} />
         </div>
         <Modal ref={modalRef} />
-        <button onClick={() => modalRef.current.open('Ceci est un titre', 'Ceci est un contenu')}>Open Modal</button>
         <footer>
           <p>
             © 2022 - HTTP 413 - Team Too Large :<br />

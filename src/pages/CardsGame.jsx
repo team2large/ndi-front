@@ -119,7 +119,7 @@ const CardsGame = () => {
           </div>
         </div>
         {attempt === 0 ? (
-          <Link to='/games/memory_capote/leaderboard'>Classement</Link>
+          <Link to='/games/memory_capote/leaderboard'><button className={styles.btnClassement}>Accédez au Classement</button></Link>
         ) : (
           <div className={styles.cards_container}>
             {cards.map((card) => (
