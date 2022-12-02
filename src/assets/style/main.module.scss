@@ -3,24 +3,22 @@
 
 .main {
     min-height: 100vh;
-    color: white;
-    background-color: $backgroundColor;
 
     header {
       text-align: center;
       padding: 20px;
   
       h1 {
-        font-size: 4rem;
+        font-family: 'Rubik Beastly';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4em;
         margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-  
-        img {
-          width: 96px;
-          margin-right: 10px;
-        }
+        margin-bottom: 40px;
+        color: #40516a;
       }
   
       h2 {

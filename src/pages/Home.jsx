@@ -1,25 +1,23 @@
 import { useContext } from 'react';
 import { AppContext } from 'context/AppContext';
-import GameCard from './GameCard';
+import GameCard from '../components/GameCard';
 import styles from 'assets/style/home.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
+import virusStyles from 'assets/style/homeVirus.module.scss';
 
 const Home = () => {
-  const { games, palette } = useContext(AppContext);
+  const { games } = useContext(AppContext);
 
   return (
     <div className={mainStyles.main}>
       <main>
         <header>
-          <h1>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/0/0a/Virus_green.svg' alt='logo' />
-            IST&apos;eirb (insérer un nom ici)</h1>
-          <h2>Sous-titre</h2>
+          <h1>Le sida ça s&apos;efface pas</h1>
         </header>
         <div className={styles.container}>
           <div className={styles.games}>
-            {games.map((game, index) => (
-              <GameCard key={game.slug} color={palette[index % palette.length]} {...game} />
+            {games.map((game) => (
+              <GameCard key={game.slug} {...game} />
             ))}
           </div>
         </div>
@@ -45,6 +43,11 @@ const Home = () => {
             </p>
           </div>
         </div>
+        <img className={virusStyles.virus} id={virusStyles.v1} src={`/img/games/ist_clicker/enemies/gale.png`} />
+        <img className={virusStyles.virus} id={virusStyles.v2} src={`/img/games/ist_clicker/enemies/chlamydiae.png`} />
+        <img className={virusStyles.virus} id={virusStyles.v3} src={`/img/games/ist_clicker/enemies/gonorrhee.png`} />
+        <img className={virusStyles.virus} id={virusStyles.v4} src={`/img/games/ist_clicker/enemies/hepatite_b.png`} />
+        <img className={virusStyles.virus} id={virusStyles.v5} src={`/img/games/ist_clicker/enemies/morpion.png`} />
         <footer>
           <p>© 2022 - HTTP 413 - Team Too Large</p>
         </footer>
