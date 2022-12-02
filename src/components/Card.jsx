@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
-import dataCondoms from 'components/condoms.json';
 import styles from 'assets/style/card.module.scss';
 
 const Card = ({ data, onClick }) => {
@@ -9,12 +7,14 @@ const Card = ({ data, onClick }) => {
     onClick(data);
   };
 
+  console.log(data);
+
   return (
     <Tilt>
       <div className={styles.card} onClick={handleClick}>
         <div className={styles.card__inner}>
           <div className={styles.image}>
-            <img src={data.image} alt='condom' />
+            <img src={`/img/condoms/${data.slug}.png`} alt='condom' />
           </div>
           <div className={styles.content}>
             <p>Date de péremption : {data.date.toLocaleDateString()}</p>

@@ -4,35 +4,35 @@
     height: 200px;
     border-radius: 20px;
     .card__inner {
+        .image {
+            position: absolute;
+            transition: all 0.2s ease;
+            img {
+                max-width: 100%;
+            }
+        }
         .content {
             padding: 20px;
 	        text-align: center;
 	        transform: translateY(100px);
 	        opacity: 0;
 	        transition: 0.5s;
-            h2 {
-                position: absolute;
-	            top: -80px;
-	            right: 30px;
-	            font-size: 8em;
-	            color: rgba(255, 255, 255, 0.05);
-	            pointer-events: none;
-            }
-            h3 {
-                font-size: 1.8em;
-	            color: #fff;
-	            z-index: 1;
-            }
             p {
                 font-size: 1em;
+                font-weight: bold;
+                font-family: "Montserrat", "Helvetica Neue",;
 	            color: #fff;
-	            font-weight: 300;
+                opacity: 0.6;
             }
         }
     }
     .card__inner:hover {
+        .image {
+            filter: blur(4px);
+            transition: all 0.2s ease;
+        }
         .content {
-            transform: translateY(0px);
+            transform: translateY(-20px);
 	        opacity: 1;
         }
     }

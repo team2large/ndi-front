@@ -31,15 +31,67 @@ const CardsGame = () => {
   const NBR_CARDS = 9;
 
   useEffect(() => {
-    for (let i = 0;i < NBR_CARDS;i++)
-      createCard();
-
-    // taf = creer l'array de card
     setCards([
       {
+        id: 1,
         name: 'Préservatif qu\'il faut',
         isValid: true,
-        image: '/src/images/condoms/capote_pas_utilise_orange.png',
+        slug: 'capote_pas_utilise_orange',
+        reasonNotValid: 'bonsoir',
+        date: new Date(),
+        size: 'L',
+        isNorme: true,
+        clicked: false,
+      },
+      {
+        id: 2,
+        name: 'Préservatif qu\'il faut',
+        isValid: true,
+        slug: 'capote_pas_utilise_orange',
+        reasonNotValid: 'bonsoir',
+        date: new Date(),
+        size: 'L',
+        isNorme: true,
+        clicked: false,
+      },
+      {
+        id: 3,
+        name: 'Préservatif qu\'il faut',
+        isValid: true,
+        slug: 'capote_pas_utilise_orange',
+        reasonNotValid: 'bonsoir',
+        date: new Date(),
+        size: 'L',
+        isNorme: true,
+        clicked: false,
+      },
+      {
+        id: 4,
+        name: 'Préservatif qu\'il faut',
+        isValid: true,
+        slug: 'capote_pas_utilise_orange',
+        reasonNotValid: 'bonsoir',
+        date: new Date(),
+        size: 'L',
+        isNorme: true,
+        clicked: false,
+      },
+      {
+        id: 5,
+        name: 'Préservatif qu\'il faut',
+        isValid: true,
+        slug: 'capote_pas_utilise_orange',
+        reasonNotValid: 'bonsoir',
+        date: new Date(),
+        size: 'L',
+        isNorme: true,
+        clicked: false,
+      },
+      {
+        id: 6,
+        name: 'Préservatif qu\'il faut',
+        isValid: true,
+        slug: 'capote_pas_utilise_orange',
         reasonNotValid: 'bonsoir',
         date: new Date(),
         size: 'L',
@@ -47,12 +99,12 @@ const CardsGame = () => {
         clicked: false,
       }
     ]);
-    // faut randomizer
-    // array = propre et prete pour jouer
-    // mettre sa dans le state card
   }, []);
 
   const handleCardCliked = (card) => {
+    // setCards((oldCards) => ({
+    //   ...oldCards,
+    // }));
     console.log('Clicked', card);
     // validite
     // gerer le jeu
@@ -65,14 +117,14 @@ const CardsGame = () => {
 
   const setError = (condom) => {
     for (let i = 0;i < getRandomInt(2);i++) {
-      switch (getRandomInt(4)) {
+      switch (getRandomInt(2)) {
         case 0:
           condom.date = new Date() - getRandomInt(300);
           condom.reasonNotValid += 'La date de péremption est passée.';
           break;
         case 1:
           condom.isNorme = true;
-          condom.reasonNotValid += 'Il faut que le préservatif soit conforme à la réglementation européenne';
+          condom.reasonNotValid += 'Il faut que le préservatif soit conforme à la réglementation européenne.';
           break;
         default:
           break;
@@ -83,6 +135,7 @@ const CardsGame = () => {
   const createCard = () => {
     const max = dataCondoms.length;
     const condom = dataCondoms[getRandomInt(max)];
+    condom.srcImg = condom.srcImg[getRandomInt(condom.imgSrc.length)];
     condom.isNorme = true;
     condom.taille = 'L';
     condom.date = new Date() + getRandomInt(300);
@@ -98,8 +151,8 @@ const CardsGame = () => {
     <div className={styles.cards_game}>
       <div className={styles.wrapper}>
         <div className={styles.cards_container}>
-          {cards.map((card, i) => (
-            <Card data={card} onClick={handleCardCliked} key={i} />
+          {cards.map((card) => (
+            <Card data={card} onClick={handleCardCliked} key={card.id} />
           ))}
         </div>
       </div>
