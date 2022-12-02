@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-$size: 80px;
+$size: 64px;
 
 table {
     //border-collapse: collapse;
@@ -41,4 +41,29 @@ td {
 .isRevealed {
     color: white;
     background: #525472;
+}
+
+.bottom {
+    margin-top: 30px;
+
+    a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 2px dotted black;
+    }
+    
+    span {
+        margin-right: 10px;
+    }
+
+    button {
+        background-color: #525472; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
 }
