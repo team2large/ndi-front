@@ -50,9 +50,12 @@ const ISTClicker = () => {
       clearInterval(timerIntervalId);
       setGameState('playing');
       setRemainingTime(45);
-      setTimerIntervalId(setInterval(() => {
-        setRemainingTime((remainingTime) => remainingTime - 1);
-      }, 1000));
+      setTimerIntervalId((oldId) => {
+        clearInterval(oldId);
+        return setInterval(() => {
+          setRemainingTime((remainingTime) => remainingTime - 1);
+        }, 1000);
+      });
     }, 1000);
   };
 
