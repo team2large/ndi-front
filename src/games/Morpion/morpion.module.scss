@@ -1,0 +1,45 @@
+.eGameWrapper {
+  background: white;
+  width: 95%;
+  height: calc(85vh - 24px);
+  margin: 0 auto;
+  display: grid;
+    place-items: center;
+}
+.mDarkHover {
+  &:hover {
+    background: rgba(0, 0, 0, .1);
+    cursor: pointer;
+  }
+}
+
+.eMorpionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 40%;
+  aspect-ratio: 1;
+  height: calc(.4 * 95vw);
+}
+
+.eGridCell {
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.mTopBorder {
+  border-top: 1px solid #40516A;
+}
+.mBottomBorder {
+  border-bottom: 1px solid #40516A;
+}
+.mLeftBorder {
+  border-left: 1px solid #40516A;
+}
+.mRightBorder {
+  border-right: 1px solid #40516A;
+}

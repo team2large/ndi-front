@@ -23,7 +23,7 @@ const Home = () => {
     <div className={mainStyles.main}>
       <main>
         <header>
-          <h1>Le sida ça s&apos;efface pas</h1>
+          <h1>No mISTery</h1>
         </header>
         <div className={styles.container}>
           <div className={styles.games}>
@@ -71,7 +71,7 @@ const Home = () => {
             <span>Anaelle - Guillaume - Célian - Marius - Youri - Tomm - Alexandre - Andréas - Valentin - Antoine - Hugo - Killian - Ethan - Lucas - Léo - Enzo - Ruben</span>
           </p>
         </footer>
-        <Link className={styles.linkAdmin} to={`/admin`}>Admin</Link>
+        <Link className={styles.linkAdmin} to={`/admin/login`}>Admin</Link>
       </main>
     </div>
   );
