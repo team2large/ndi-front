@@ -1,54 +1,25 @@
 @use "assets/style/utils";
 @import "assets/style/utils";
 
-.home {
-  min-height: 100vh;
-  background-color: #282c34;
-  color: white;
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 10px 40px;
 
-  header {
-    text-align: center;
+  .content {
     padding: 20px;
-
-    h1 {
-      font-size: 4rem;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 96px;
-        margin-right: 10px;
-      }
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
-  }
-
-  .container {
+    width: 100%;
     max-width: 1700px;
     margin: 0 auto;
-    padding: 10px 40px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: #484a4f;
+    color: #ffffff;
 
-    .content {
-      padding: 20px;
-      width: 100%;
-      max-width: 1700px;
-      margin: 0 auto;
-      box-sizing: border-box;
-      border-radius: 20px;
-      background-color: #484a4f;
+    a {
       color: #ffffff;
-
-      a {
-        color: #ffffff;
-        text-decoration: none;
-        border-bottom: 1px dotted #ffffff;
-      }
+      text-decoration: none;
+      border-bottom: 1px dotted #ffffff;
     }
   }
 
@@ -67,11 +38,12 @@
       grid-template-columns: repeat(1, 1fr);
       padding: 20px;
     }
-  }
 
-  footer {
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 18px;
+    }
+
   }
 }

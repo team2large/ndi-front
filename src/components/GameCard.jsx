@@ -8,7 +8,7 @@ const GameCard = ({
   description,
   color,
 }) => (
-  <Link className={styles.game} key={id} style={{ backgroundColor: color }} to={`/game/${id}`}>
+  <Link className={styles.game} key={id} style={{ backgroundColor: color }} to={`/games/${slug}`}>
     <img src={`/img/games/${slug}.png`} alt={`Illustration du jeu ${name}`} />
     <h3>{name}</h3>
     <p>{description}</p>
