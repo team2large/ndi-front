@@ -1,0 +1,32 @@
+[
+    {
+        "message" : "Oh non ! Tu as attrapé une hépatite B ! La plupart du temps elle est asymptomatique donc difficile à détecter sans prise de sang. Un suivi médical est indispensable pour ne pas en devenir porteur à vie !Une fois de plus, le préservatif est ton meilleur ami !Voir plus d’info https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/qu-est-ce-que-l-hepatite-b"
+        
+    },
+    {     
+        "message" : "Argh ! Ton/ta partenaire t’as transmis de l'herpès !Ce virus très contagieux provoque des petits boutons douloureux sur les organes génitaux, l’anus ou la bouche.Ton médecin pourra te prescrire de quoi atténuer la douleur et réduire la durée des crises mais malheureusement ils n’éliminent pas le virus :’(. Le préservatif est le seul moyen de s’en protéger alors sors couvert !Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/qu-est-ce-que-l-herpes-genital"
+        
+    },
+    {
+        "message" :    "Tu as contracté le VIH…    Si l’exposition est récente (moins de 48h) va vite aux urgence, il existe un traitement !Sinon il faut que tu ailles voir un médecin pour éviter que le virus ne mène au sida.Heureusement on peut aujourd’hui vivre avec le VIH sans problème et sans risque de transmission.Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/qu-est-ce-que-le-vih"
+        
+    },
+    {   
+        "message" :   "Aïe ! C’est le papillomavirus ! On compte plus d’une centaine de papillomavirus différents et près de 80% des personnes seront infectées par l’un d’entre eux dans leur vie, donc rien de très grave ! Il faut tout de même vite aller voir un médecin pour déterminer le traitement nécessaire.Un vaccin existe contre certains papillomavirus et il est plus efficace s' il est fait avant les premières expériences sexuelles.Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/que-sont-les-papillomavirus-hpv"
+
+        
+    },   
+    {    
+        "message" :  "Tu as contracté la syphilis !Elle se manifeste par l’apparition de petites plaies, boutons ou plaques rouges indolores sur les muqueuses.Elle est facilement traitée par antibiotique mais peut amener à de graves complications.Encore et toujours, le préservatif est ton seul bouclier et fais toi dépister si tu l’as oublié. Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/qu-est-ce-que-la-syphilis"
+    },   
+    {    
+        "message" : "  Oups, c’est la gonorrhée !  Aussi appelée chaude-pisse, elle provoque des brulures ou des écoulements jaunes par les organes génitaux ou l’anus. On la soigne avec des antibiotiques et il est important de traiter tous les partenaires en même temps pour éviter de se réinfecter les uns les autres. Une seule solution pour l’éviter à coup sûr, le préservatif ! Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/ qu-est-ce-que-la-blennorragie-gonococcique-ou-chaude-pisse"
+    },
+    {
+        "message" : "Aïe, c’est une chlamydia ! L’infection la plus fréquente chez les jeunes est souvent asymptomatique mais extrêmement contagieuse. Heureusement le traitement par antibiotique est simple et rapide ! N’oublie pas de prévenir tous tes partenaires des 2 derniers mois ! Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/qu-est-ce-que-la-chlamydiose-s-informer-sur-les-ist"
+        
+    },
+    {  
+       "message" : " Oh non ! C’est un parasite !  Les morpions ou la trichomonase sont des parasites très contagieux mais qui sont simples à éliminer. Le traitement des morpions s’effectue via le rasage de la zone infectée et l’utilisation de lotion spécifique et la trichomonase peut être traitée par la prise d’antibiotique en dose unique, délivré sur ordonnance.Voir plus d’infos https://questionsexualite.fr/s-informer-sur-les-infections-et-les-maladies/les-infections-sexuellement-transmissibles/morpions-gale-trichomonase-vaginalis-comment-se-proteger"
+    }
+]

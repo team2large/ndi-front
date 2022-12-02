@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN npm ci
+RUN npm i
 RUN npm i -g serve
 
 EXPOSE 3000

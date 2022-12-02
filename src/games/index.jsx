@@ -1,3 +1,4 @@
 import ISTClicker from './ISTClicker';
+import Morpion from './Morpion';
 
-export { ISTClicker };
+export { ISTClicker, Morpion };

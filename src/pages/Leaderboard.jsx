@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from 'context/AppContext';
+import arrow from '../assets/images/admin/goBackArrow.svg';
 import api from 'api';
-import arrow from 'assets/images/admin/goBackArrow.svg';
 import styles from 'assets/style/leaderboard.module.scss';
 
 const Leaderboard = () => {
@@ -31,6 +31,21 @@ const Leaderboard = () => {
         },
         {
           id: 3,
+          username: 'Tata',
+          score: 25,
+        },
+        {
+          id: 4,
+          username: 'Tata',
+          score: 25,
+        },
+        {
+          id: 5,
+          username: 'Tata',
+          score: 25,
+        },
+        {
+          id: 6,
           username: 'Tata',
           score: 25,
         }
@@ -63,7 +78,7 @@ const Leaderboard = () => {
   };
 
   const addScore = () => {
-    if (username.length > 0 && parseInt(score) > 0) {
+    if (username.length > 0 && parseInt(score) >= 0) {
       api.games.addScore(gameId, username, parseInt(score))
         .then((addScoreResult) => {
           console.log(addScoreResult);
@@ -115,5 +130,4 @@ const Leaderboard = () => {
     </div>
   );
 };
-
 export default Leaderboard;

@@ -5,11 +5,12 @@
   height: calc(85vh - 24px);
   margin: 0 auto;
   position: relative;
+  user-select: none;
 }
 
 .eButton {
   background: #6acea9;
-  font-size: 36px;
+  font-size: 24px;
   padding: .5em 1em;
   border-radius: 8px;
   border: none;
@@ -18,6 +19,7 @@
   cursor: pointer;
   position: absolute;
   transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
 
   &:hover {
     box-shadow: 2px 4px 6px rgba(252, 246, 189, 0.15);
@@ -97,6 +99,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 
 
 
@@ -117,6 +121,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: "Poppins", sans-serif;
   button {
     transform: none;
     position: unset;

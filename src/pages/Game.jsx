@@ -1,13 +1,14 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AppContext } from 'context/AppContext';
-import { ISTClicker } from '../games';
+import { ISTClicker, Morpion } from '../games';
 import styles from 'assets/style/game.module.scss';
 
 
 const GameComponents = {
   /* eslint-disable camelcase */
   ist_clicker: ISTClicker,
+  morpion: Morpion,
   /* eslint-enable camelcase */
 };
 
@@ -36,7 +37,6 @@ const Game = () => {
             <>
               <h1 >{currentGame.name}</h1>
               <p>{currentGame.description}</p>
-              <Link to={`/games/${currentGame.slug}/leaderboard`}>Leaderboard</Link>
             </>
           ) : (
             <h1>Game not found</h1>

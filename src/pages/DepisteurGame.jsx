@@ -1,12 +1,17 @@
 
-import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Modal from 'components/Modal';
 import { AppContext } from '../context/AppContext';
 import styles from 'assets/style/depisteurgame.module.scss';
+import mainStyles from 'assets/style/main.module.scss';
+import messages from 'pages/texte.json';
+
 
 const NBR_OF_BOMB = 10;
 const NBR_OF_ROWS = 8;
 const MAX_LIVES = 6;
+
 
 const createGrid = () => {
   const grid = [];
@@ -78,6 +83,11 @@ const setValues = (grid) => {
   return grid;
 };
 
+const getRandomMessage = () => {
+  const index = Math.floor(Math.random() * messages.length);
+  return messages[index];
+};
+
 const DepisteurGame = () => {
   const navigate = useNavigate();
   const [grid, setGrid] = useState(null);
@@ -85,6 +95,7 @@ const DepisteurGame = () => {
   const [revealedDiseases, setRevealedDiseases] = useState(null);
   const [moves, setMoves] = useState(0);
   const { currentScore, setCurrentScore } = useContext(AppContext);
+  const modalRef = useRef();
 
   const revealCase = (grid, row, col) => {
     setMoves(moves + 1);
@@ -104,8 +115,15 @@ const DepisteurGame = () => {
     if (checkVictory(newGrid)) {
       setCurrentScore(100 - moves);
       console.log('Victory');
-      navigate('/games/depisteur/leaderboard');
+      //navigate('/games/depisteur/leaderboard');
     }
+  };
+
+  const resetGrid = () => {
+    setGrid(createGrid());
+    setLives(MAX_LIVES);
+    setRevealedDiseases(null);
+    setMoves(0);
   };
 
   const checkVictory = (grid) => {
@@ -122,8 +140,10 @@ const DepisteurGame = () => {
   };
 
   const checkDeath = () => {
-    if (lives <= 0)
+    if (lives <= 0) {
+      modalRef.current.open('Vous avez perdu...', getRandomMessage().message);
       return true;
+    }
     return false;
   };
 
@@ -170,6 +190,8 @@ const DepisteurGame = () => {
   };
 
   const handleOnClick = (item, i, j) => {
+    if (checkDeath())
+      return;
     if (item.isRevealed)
       return;
     revealCase(grid, i, j);
@@ -177,6 +199,8 @@ const DepisteurGame = () => {
 
   const handleOnContextMenu = (event, item, i, j) => {
     event.preventDefault();
+    if (checkDeath())
+      return;
     const newGrid = JSON.parse(JSON.stringify(grid));
     if (item.isRevealed)
       return;
@@ -185,7 +209,7 @@ const DepisteurGame = () => {
   };
 
   return (
-    <div>
+    <div className={mainStyles.main}>
       <header>
         <h1>Depisteur</h1>
         <div className={styles.container}>
@@ -212,8 +236,15 @@ const DepisteurGame = () => {
               )) : <td>no grid</td>}
             </tbody>
           </table>
+          <div className={styles.bottom}>
+            {grid ? checkVictory(grid) ? <div><span>Victoire !</span><Link to='/games/depisteur/leaderboard'>Scores</Link></div> : undefined : undefined}
+            {grid ? checkDeath() ? <button onClick={() => {
+              resetGrid();
+            }}>Recommencer</button> : undefined : undefined}
+          </div>
         </div>
       </header>
+      <Modal ref={modalRef} />
     </div>
   );
 };

@@ -50,9 +50,12 @@ const ISTClicker = () => {
       clearInterval(timerIntervalId);
       setGameState('playing');
       setRemainingTime(45);
-      setTimerIntervalId(setInterval(() => {
-        setRemainingTime((remainingTime) => remainingTime - 1);
-      }, 1000));
+      setTimerIntervalId((oldId) => {
+        clearInterval(oldId);
+        return setInterval(() => {
+          setRemainingTime((remainingTime) => remainingTime - 1);
+        }, 1000);
+      });
     }, 1000);
   };
 
@@ -104,7 +107,7 @@ const ISTClicker = () => {
           </div>
           <div className={styles.eSaveScoreWrapper}>
             <h3>Score : {Object.values(killBoard).reduce((acc, val) => acc + val, 0)}</h3>
-            <button className={styles.eButton} onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
+            <button className={styles.eButton} onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder mon classement</button>
           </div>
         </div>
       )

@@ -1,0 +1,39 @@
+.card {
+    background-color: #5B5D82;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    .card__inner {
+        .image {
+            position: absolute;
+            transition: all 0.2s ease;
+            img {
+                max-width: 100%;
+            }
+        }
+        .content {
+            padding: 20px;
+	        text-align: center;
+	        transform: translateY(50px);
+	        opacity: 0;
+	        transition: 0.5s;
+            p {
+                font-size: 1em;
+                font-weight: bold;
+                font-family: 'Poppins', sans-serif;
+	            color: #fff;
+            }
+        }
+    }
+    .card__inner:hover {
+        .image {
+            filter: blur(4px);
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        .content {
+            transform: translateY(0px);
+	        opacity: 1;
+        }
+    }
+}
