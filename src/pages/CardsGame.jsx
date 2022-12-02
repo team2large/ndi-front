@@ -27,85 +27,87 @@ const CardsGame = () => {
   // }, [attempt]);
 
   // un state qui contient toutes les cartes en jeu -> 9
-  const [cards, setCards] = useState([]);
-  const NBR_CARDS = 9;
+  const [cards, setCards] = useState([
+    {
+      id: 1,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    },
+    {
+      id: 2,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    },
+    {
+      id: 3,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    },
+    {
+      id: 4,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    },
+    {
+      id: 5,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    },
+    {
+      id: 6,
+      name: 'Préservatif qu\'il faut',
+      isValid: true,
+      slug: 'capote_pas_utilise_orange',
+      reasonNotValid: 'bonsoir',
+      date: new Date(),
+      size: 'L',
+      isNorme: true,
+      clicked: false,
+    }
+  ]);
 
-  useEffect(() => {
-    setCards([
-      {
-        id: 1,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
-      },
-      {
-        id: 2,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
-      },
-      {
-        id: 3,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
-      },
-      {
-        id: 4,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
-      },
-      {
-        id: 5,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
-      },
-      {
-        id: 6,
-        name: 'Préservatif qu\'il faut',
-        isValid: true,
-        slug: 'capote_pas_utilise_orange',
-        reasonNotValid: 'bonsoir',
-        date: new Date(),
-        size: 'L',
-        isNorme: true,
-        clicked: false,
+  const toggleCard = (cardId) => {
+    const newCards = cards.map((c) => {
+      if (c.id === cardId) {
+        return {
+          ...c,
+          clicked: !c.clicked,
+        };
       }
-    ]);
-  }, []);
 
-  const handleCardCliked = (card) => {
-    // setCards((oldCards) => ({
-    //   ...oldCards,
-    // }));
-    console.log('Clicked', card);
+      return c;
+    });
+    setCards(newCards);
     // validite
     // gerer le jeu
     // check game ended
@@ -152,7 +154,11 @@ const CardsGame = () => {
       <div className={styles.wrapper}>
         <div className={styles.cards_container}>
           {cards.map((card) => (
-            <Card data={card} onClick={handleCardCliked} key={card.id} />
+            <Card
+              data={card}
+              onClick={() => toggleCard(card.id)}
+              key={card.id}
+            />
           ))}
         </div>
       </div>
