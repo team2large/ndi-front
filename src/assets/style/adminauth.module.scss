@@ -1,0 +1,50 @@
+.adminAuth {
+  ul {
+    list-style-type: none;
+  }
+  ul li {
+    cursor: pointer;
+  }
+  .goodChoice:hover {
+    color: red;
+  }
+
+  display: flex;
+  div:first-child {
+    align-self: center;
+  }
+}
+
+.timedElement {
+  div:last-child {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: black;
+  }
+  div:last-child:hover {
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.fourthComponent {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    flex-direction: row;
+    div:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mainWrapper {
+  color: white;
+  min-height: 100vh;
+  background-color: #2a2c31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
