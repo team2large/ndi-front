@@ -3,44 +3,364 @@
         "name": "Préservatif qu'il faut",
         "isValid": true,
         "srcImg": [
-            "/src/images/condoms/capote_pas_utilise_orange.png",
-            "/src/images/condoms/capote_pas_utilise_verte.png",
-            "/src/images/condoms/sachet_clean.png",
-            "/src/images/condoms/sachet_clean1.png"
-                ],
-        "reasonNotValid": null
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": null,
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est périmé, il n'a plus d'effet de protection.",
+        "datePeremptionPeremption": "20/03/2020",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "12/01/2023",
+        "taille": "XXXXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est périmé, il n'a plus d'effet de protection. De plus il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est périmé, il n'a plus d'effet de protection. De plus il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "22/06/2024",
+        "taille": "XXXXXXXXL",
+        "norme": false
+    },
+    {
+        "name": "Préservatif qu'il faut",
+        "isValid": false,
+        "srcImg": [
+            "capote_pas_utilise_orange",
+            "capote_pas_utilise_verte",
+            "sachet_clean",
+            "sachet_clean1"
+            ],
+        "reasonNotValid": "Malgrès son appérence intacte, le préservatif est périmé, il n'a plus d'effet de protection , il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXXXL",
+        "norme": false
     },
     {
         "name": "Préservatif craqué",
         "isValid": false,
         "srcImg": [
-            "/src/images/condoms/capote_cassee_bleue.png",
-            "/src/images/condoms/capote_cassee.png",
-            "/src/images/condoms/sachet_ouvert.png"
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
         ],
-        "reasonNotValid": "Le préservatif est craqué"
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection, de plus il est périmé",
+        "datePeremption": "20/03/2020",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection, de plus il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "12/01/2023",
+        "taille": "XXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection, de plus il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection. De plus il est périmé, il n'a plus d'effet de protection et il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection. De plus il est périmé, il n'a plus d'effet de protection et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif craqué",
+        "isValid": false,
+        "srcImg": [
+            "capote_cassee_bleue",
+            "capote_cassee",
+            "sachet_ouvert"
+        ],
+        "reasonNotValid": "Attention le préservatif est craqué, le préservatif n'a plus son effet de protection. De plus il est périmé, il n'a plus d'effet de protection, il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXL",
+        "norme": false
     },
     {
         "name": "Préservatif fantaisie",
         "isValid": false,
         "srcImg": [
-            "/src/images/condoms/capote_multicolore.png"
+            "capote_multicolore"
                 ],
-        "reasonNotValid": "Les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable."
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": true
     },
     {
-        "name": "Préservatif taille énorme",
+        "name": "Préservatif fantaisie",
         "isValid": false,
-        "srcImg": ["/src/images/condoms/capote_XXXXXXXL.png"],
-        "reasonNotValid": "Prendre un préservatif de taille trop grande annule son effet"
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable, de plus il est périmé",
+        "datePeremption": "20/03/2020",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable, de plus il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "12/01/2023",
+        "taille": "XXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable, de plus il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable. De plus il est périmé, il n'a plus d'effet de protection et il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable. De plus il est périmé, il n'a plus d'effet de protection et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif fantaisie",
+        "isValid": false,
+        "srcImg": [
+            "capote_multicolore"
+                ],
+        "reasonNotValid": "Attention les préservatifs fantaisie sont généralement de mauvaise qualité et peu agrèable. De plus il est périmé, il n'a plus d'effet de protection, il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXL",
+        "norme": false
     },
     {
         "name": "Préservatif déja utilisé",
         "isValid": false,
         "srcImg": [
-            "/src/images/condoms/capote_utilise_orange.png",
-            "/src/images/condoms/capote_utilise_verte.png"
+            "capote_utilise_orange",
+            "capote_utilise_verte"
                 ],
-        "reasonNotValid": "Il ne faut pas réutiliser un préservatif déja utilisé."
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il est périmé",
+        "datePeremption": "20/03/2020",
+        "taille": "L",
+        "norme": true
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "12/01/2023",
+        "taille": "XXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection.",
+        "datePeremption": "12/01/2023",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il est périmé, il n'a plus d'effet de protection et il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace.",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXXL",
+        "norme": true
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il est périmé, il n'a plus d'effet de protection et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "L",
+        "norme": false
+    },
+    {
+        "name": "Préservatif déja utilisé",
+        "isValid": false,
+        "srcImg": [
+            "capote_utilise_orange",
+            "capote_utilise_verte"
+                ],
+        "reasonNotValid": "Attention il ne faut jamais réutiliser un préservatif déja utilisé, il contient encore des substances, vous risquerez surement d'attraper l'infection de votre partenaire et il ne servira plus de moyen contraceptif. De plus il est périmé, il n'a plus d'effet de protection, il est trop grand, s'avérera surement génant et ne pourra pas servir de protection efficace et il ne respecte pas la réglementation européenne, il peut s'avérer trop fragile et ne pas être un moyen fiable de protection",
+        "datePeremption": "02/05/2021",
+        "taille": "XXXXXL",
+        "norme": false
     }
 ]

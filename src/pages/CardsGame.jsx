@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from 'context/AppContext';
 import Card from 'components/Card';
@@ -6,97 +7,72 @@ import dataCondoms from 'components/condoms.json';
 
 const CardsGame = () => {
   const { palette } = useContext(AppContext);
-  // const ATTEMPT_MAX = 3;
 
-  // const [score, setScore] = useState(null);
-  // const [attempt, setAttempt] = useState(0);
-  // const [isWin, setIsWin] = useState(false);
-  // const [condoms, setCondoms] = useState([]);
+  const ATTEMPT_MAX = 3;
+  const NBR_CARDS = 9;
 
-  // const cards = [];
+  const [score, setScore] = useState(null);
+  const [attempt, setAttempt] = useState(0);
+  const [isWin, setIsWin] = useState(false);
+  const [cards, setCards] = useState([]);
 
-  // useEffect(() => {
-  //   for (let i = 0;i < 9;i++)
-  //     cards.push(<Card />);
-  // }, []);
+  useEffect(() => {
+    if (attempt === ATTEMPT_MAX) {
+      setIsWin(false);
+      setScore(0);
+    } else if (isWin)
+      setScore(ATTEMPT_MAX - attempt);
+  }, [attempt]);
 
-  // useEffect(() => {
-  //   if (attempt === ATTEMPT_MAX) {
-  //     setIsWin(false);
-  //     setScore(0);
-  //   } else if (isWin)
-  //     setScore(ATTEMPT_MAX - attempt);
-  // }, [attempt]);
+  useEffect(() => {
+    setCards(generateCards());
+  }, []);
 
-  // un state qui contient toutes les cartes en jeu -> 9
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      name: 'Préservatif qu\'il faut',
-      isValid: false,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
-    },
-    {
-      id: 2,
-      name: 'Préservatif qu\'il faut',
-      isValid: true,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
-    },
-    {
-      id: 3,
-      name: 'Préservatif qu\'il faut',
-      isValid: true,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
-    },
-    {
-      id: 4,
-      name: 'Préservatif qu\'il faut',
-      isValid: false,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
-    },
-    {
-      id: 5,
-      name: 'Préservatif qu\'il faut',
-      isValid: false,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
-    },
-    {
-      id: 6,
-      name: 'Préservatif qu\'il faut',
-      isValid: false,
-      slug: 'capote_pas_utilise_orange',
-      reasonNotValid: 'bonsoir',
-      date: new Date(),
-      size: 'L',
-      isNorme: true,
-      clicked: false,
+  const getRandomInt = (max) => Math.floor(Math.random() * max);
+
+  const getRandomIntBetween = (min, max) => Math.floor((Math.random() * (max - min)) + min);
+
+  function generateCards() {
+    let cards = [];
+    const nbrGoodCard = getRandomIntBetween(1, NBR_CARDS / 2);
+    for (let i = 0;i < nbrGoodCard;i++)
+      cards.push(dataCondoms[0]);
+
+    for (let i = 0;i < NBR_CARDS - nbrGoodCard;i++)
+      cards.push(createCard());
+    shuffle(cards);
+
+    cards = cards.map((c, index) => ({
+      id: index,
+      name: c.name,
+      slug: c.srcImg[getRandomInt(c.srcImg.length)],
+      isValid: c.isValid,
+      reasonNotValid: c.reasonNotValid,
+      date: c.datePeremption,
+      size: c.taille,
+      isNorme: c.norme,
+    }));
+
+    return cards;
+  }
+
+  const createCard = () => {
+    const max = dataCondoms.length;
+    const condom = dataCondoms[getRandomIntBetween(1, max)];
+    condom.image = condom.srcImg[getRandomInt(condom.srcImg.length)];
+    return { ...condom };
+  };
+
+  const shuffle = (array) => {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
-  ]);
+
+    return array;
+  };
 
   const toggleCard = (cardId) => {
     const newCards = cards.map((c) => {
@@ -125,48 +101,11 @@ const CardsGame = () => {
       return;
     }
 
-    // check if all selected cards are valid
     const allValid = selectedCards.every((c) => c.isValid);
     if (allValid)
       alert('Bravo, vous avez gagné');
     else
       alert(`${validSelectedCards.length} cartes sont valides, ${invalidSelectedCards.length} cartes sont invalides`);
-  };
-
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
-  const setError = (condom) => {
-    for (let i = 0;i < getRandomInt(2);i++) {
-      switch (getRandomInt(2)) {
-        case 0:
-          condom.date = new Date() - getRandomInt(300);
-          condom.reasonNotValid += 'La date de péremption est passée.';
-          break;
-        case 1:
-          condom.isNorme = true;
-          condom.reasonNotValid += 'Il faut que le préservatif soit conforme à la réglementation européenne.';
-          break;
-        default:
-          break;
-      }
-    }
-  };
-
-  const createCard = () => {
-    const max = dataCondoms.length;
-    const condom = dataCondoms[getRandomInt(max)];
-    condom.srcImg = condom.srcImg[getRandomInt(condom.imgSrc.length)];
-    condom.isNorme = true;
-    condom.taille = 'L';
-    condom.date = new Date() + getRandomInt(300);
-    if (getRandomInt(2)) {
-      condom.isValid = false;
-      setError(condom);
-    }
-    console.log(condom);
-    return condom;
   };
 
   return (

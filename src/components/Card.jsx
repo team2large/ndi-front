@@ -19,7 +19,7 @@ const Card = ({ data, onClick }) => {
           </div>
           <div className={styles.content}>
             <p>
-              Date de péremption : {data.date.toLocaleDateString()}
+              Date de péremption : {data.date}
             </p>
             <p>Taille : {data.size}</p>
             {data.isNorme && (
