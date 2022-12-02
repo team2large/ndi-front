@@ -17,7 +17,7 @@ const GameRules = () => {
     <div className={styles.home}>
       <main className={'container'}>
         <div><img src={`/img/rules/${currentGame.slug}.png`} alt='Règles du jeu courant' /></div>
-        <div><Link to={`/games/${currentGame.slug}/play`}>Jouer au jeu <img src={playButton} width={30} height={30} alt='Lancer le jeu' /></Link></div>
+        <div><Link to={`/`}><img src={playButton} style={{ transform: 'rotate(180deg)' }} width={30} height={30} alt='Retour Accueil' />Retour à l&apos;accueil | </Link><Link to={`/games/${currentGame.slug}/play`}>Jouer au jeu <img src={playButton} width={30} height={30} alt='Lancer le jeu' /></Link></div>
       </main>
     </div>
   );

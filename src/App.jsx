@@ -1,4 +1,4 @@
-import CardsGame from 'pages/CardsGame';
+import CardsGame from 'pages/MemoCapote';
 import Home from 'pages/Home';
 import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';

@@ -1,21 +1,21 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
 import Card from 'components/Card';
 import Modal from 'components/Modal';
-import styles from 'assets/style/cardsgame.module.scss';
+import styles from 'assets/style/memocapote.module.scss';
 import dataCondoms from 'components/condoms.json';
 
-const CardsGame = () => {
+const MemoCapote = () => {
   const { setCurrentScore } = useContext(AppContext);
   const modalRef = useRef();
+  const navigate = useNavigate();
 
   const ATTEMPT_MAX = 3;
   const NBR_CARDS = 9;
 
   const [score, setScore] = useState(0);
   const [attempt, setAttempt] = useState(ATTEMPT_MAX);
-  const [isFail, setIsFail] = useState(false);
   const [cards, setCards] = useState([]);
   const [nbrGoodCard, setNbrGoodCard] = useState(0);
 
@@ -119,7 +119,7 @@ const CardsGame = () => {
           </div>
         </div>
         {attempt === 0 ? (
-          <Link to='/games/memory_capote/leaderboard'>Classement</Link>
+          <button className={styles.eButton} onClick={() => navigate(`/games/memory_capote/leaderboard`)}>Sauvegarder mon classement</button>
         ) : (
           <div className={styles.cards_container}>
             {cards.map((card) => (
@@ -137,4 +137,4 @@ const CardsGame = () => {
   );
 };
 
-export default CardsGame;
+export default MemoCapote;

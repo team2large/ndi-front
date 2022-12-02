@@ -12,6 +12,12 @@
     a {
         color: rgb(40, 40, 56);
         text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+    }
+
+    img {
+        margin-bottom: 4px;
     }
 
     div:first-child > img {
@@ -19,6 +25,7 @@
         background-color: #fff;
         border-radius: 25px;
         max-height: 80vh;
+        max-width: 100%;
     }
 
     div:last-child {
