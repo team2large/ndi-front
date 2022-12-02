@@ -62,6 +62,7 @@ const api = {
     addScore: (gameId, username, score) => post(`/games/${gameId}/scores`, { username, score }),
   },
   admin: {
+    login: (password) => post('/admin/login', { password }),
     listScores: () => get('/admin/scores'),
     deleteScore: (scoreId) => remove(`/admin/scores/${scoreId}`),
   },

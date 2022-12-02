@@ -57,7 +57,7 @@ const AdminAuth = () => {
 
   const incrementState = () => {
     setCurrentFormState(currentFormState + 1);
-    if (currentFormState > 3)
+    if (currentFormState > 2)
       handleSubmit();
   };
 
@@ -144,6 +144,7 @@ const AdminAuth = () => {
   return (
     <div className={styles.mainWrapper}>
       <div>
+        <h3>Le mot de passe est :<br/>qjHbsUt4ozypGZRnIBTqb12uzTU9&6EKnT6nzbMD.<br />Bonne chance !</h3>
         <label htmlFor='password'>Password</label>
         <input
           type='password'
