@@ -1,35 +1,95 @@
 @use "assets/style/utils";
 @import "assets/style/utils";
 
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    box-sizing: border-box;
+.wrapper {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.name {
+    font-family: 'Rubik Beastly',sans-serif;
+    font-size:3rem;
+    color:#40516A;
+    margin-top:2vh;
+}
+.description {
+    margin-top:10vh;
+    max-width:30vw;
+    color:black;
+    text-align: center;
+}
+.leaderboardName {
+    font-family: 'Poppins',sans-serif;
+}
+.leaderboard {
+    width:50vw;
+    display:flex;
+    background-color:#5B5D82;
+    border-radius:15px;
+    margin:1vh;
+    justify-content: space-between;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+/* Ascenseur */
+.wrapper::-webkit-scrollbar-thumb {
+    background: #efdfff;
+    border-radius: 8px;
+}
 
-    td,
-    th {
-        border: 1px solid #ddd;
-        padding: 8px; 
+.ranking{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color:white;
+    font-family: 'Rubik Beastly',sans-serif;
+    font-size:1.4em;
+    margin-left:1vw;
+    width:33%;
+}
+.user {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-family: 'Poppins',sans-serif;
+    font-size:1.4em;
+    width:33%;
+    text-align: center;
+}
+.score {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    font-size:1.4em;
+    margin-right:1vw;
+    font-family: 'Poppins';
+    color:#92FFAA;
+    width:33%
+
+}
+.bottomContent {
+    margin-top:25vh;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    > p {
+        font-family: "Rubik Beastly";
+        font-weight: normal;
         text-align: center;
+        font-size: 3rem;
+        margin-left: 20px;
+        color: #40516a;
     }
-    
-    tr:nth-child(even) {
-        background-color: grey;
-    }
-    
-    tr:hover {
-        background-color: rgb(168, 168, 168);
-    }
-    
-    th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #6acea9;
-        color: white;
-        text-align: center;
-    }
+}
+
+.bottomContent:visited {
+    color: inherit;
 }

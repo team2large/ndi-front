@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from 'context/AppContext';
+import arrow from '../assets/images/gamerules/playButton.png';
 import api from 'api';
 import styles from 'assets/style/leaderboard.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
@@ -61,52 +62,29 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <div className={mainStyles.main}>
-      <main>
-        <header>
-          {currentGame ? (
-            <>
-              <h1>Leaderboard {currentGame.name}</h1>
-              <p>{currentGame.description}</p>
-            </>
-          ) : (
-            <h1>Game not found</h1>
-          )}
-        </header>
-        {/* Form with username and score */}
-        <div className={styles.form}>
-          <label htmlFor='username'>Username</label>
-          <input type='text' id='username' value={username} onChange={(e) => setUsername(e.target.value)} />
-          <label htmlFor='score'>Score</label>
-          <input type='number' id='score' value={score} onChange={(e) => setScore(e.target.value)} />
-          <button onClick={addScore}>Add score</button>
+    <main className={styles.wrapper}>
+      {currentGame ? (
+        <>
+          <header className={styles.name}>{currentGame.name}</header>
+          <p className={styles.description}> Vous trouverez ici le classement du jeu  {currentGame.name}</p>
+        </>
+      ) : (
+        <header className={styles.name}> Jeu non trouvé</header>
+      )}
+      <p className={styles.leaderboardName}>Leaderboard</p>
+      { leaderboard && leaderboard.map((item, index) => (
+        <div key={index} className={styles.leaderboard}>
+          <p className={styles.ranking}>#{index + 1}</p>
+          <p className={styles.user}>{item?.username}</p>
+          <p className={styles.score}>{item?.score}</p>
         </div>
-        {leaderboard && (
-          <table>
-            <thead>
-              <tr>
-                <th>Rang</th>
-                <th>Pseudo</th>
-                <th>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {leaderboard.map((item, index) => (
-                <tr key={index}>
-                  <td>#{index + 1}</td>
-                  <td>{item.username}</td>
-                  <td>{item.score}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-        <Link to='/'>
-          Homepage
-        </Link>
-      </main>
-    </div>
+      ))}
+      <Link className={styles.bottomContent} to={'/'}>
+        <img src={arrow} />
+        <p>Accueil</p>
+      </Link>
+
+    </main>
   );
 };
-
 export default Leaderboard;
