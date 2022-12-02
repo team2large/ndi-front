@@ -1,28 +1,23 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { AppContext } from 'context/AppContext';
 import styles from 'assets/style/gamerules.module.scss';
 import playButton from 'assets/images/gamerules/playButton.png';
-import gameRulesSlugToFileMapping from 'assets/json/gameRulesSlugToFileMapping.json';
 
 const GameRules = () => {
+  const { currentGame, changeCurrentGame, gamesLoaded } = useContext(AppContext);
   const { gameId } = useParams();
-  const navigate = useNavigate();
-
 
   useEffect(() => {
-    if (!Object.keys(gameRulesSlugToFileMapping).includes(gameId)) {
-      // On vérifie que le jeu existe. Sinon on le redirige à l'accueil
-      navigate('/');
-    }
-  }, []);
-
-  const gameRuleImageURI = gameRulesSlugToFileMapping[gameId];
+    if (gamesLoaded)
+      changeCurrentGame(gameId);
+  }, [gamesLoaded]);
 
   return (
     <div className={styles.home}>
       <main className={'container'}>
-        <div><img src={gameRuleImageURI} alt='Règles du jeu courant'/></div>
-        <div><a href={`/game/${gameId}/play`}>Jouer au jeu <img src={playButton} width={30} height={30} alt='Lancer le jeu'/></a></div>
+        <div><img src={`/img/rules/${currentGame.slug}.png`} alt='Règles du jeu courant' /></div>
+        <div><Link to={`/games/${currentGame.slug}/play`}>Jouer au jeu <img src={playButton} width={30} height={30} alt='Lancer le jeu' /></Link></div>
       </main>
     </div>
   );
