@@ -9,7 +9,7 @@ const App = () => (
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='/register' element={<Register />}/>
-    <Route path='/admin-auth' element={<AdminAuth />}/>
+    <Route path='/admin/login' element={<AdminAuth />}/>
     <Route path='/game/:gameId' element={<GameRules />}/>
     <Route path='/game/:gameId/play' element={<Game />}/>
   </Routes>
