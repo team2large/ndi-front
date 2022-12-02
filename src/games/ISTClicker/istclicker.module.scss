@@ -2,8 +2,8 @@
   background: white;
   border-radius: 16px;
   width: 95%;
-  height: calc(100vh - 115.5px);
-  margin: 12px auto;
+  height: calc(85vh - 24px);
+  margin: 0 auto;
   position: relative;
 }
 
@@ -48,23 +48,18 @@
 .eTimer {
   position: absolute;
   top: 8px;
-  right: 8px;
-  width: 3.5ch;
-  height: 3.5ch;
+  left: 50%;
+  transform: translateX(-50%);
   display: grid;
   place-items: center;
-  font-size: 52px;
-  font-weight: 600;
-  background: #6acea9;
-  border-radius: 50%;
-}
-
-.mMid {
-  background: #eea647;
+  font-size: 24px;
+  color: #40516A;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
 }
 
 .mLow {
-  background: #e15b29;
+  color: #e15b29;
 }
 
 .mCenter {

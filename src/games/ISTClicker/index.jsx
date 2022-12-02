@@ -6,7 +6,7 @@ import styles from './istclicker.module.scss';
 import enemies from './enemies.json';
 import Enemy from './Enemy';
 
-const gameStates = ['initialState', 'firstEnemy', 'playing', 'gameOver'];
+const gameStates = ['firstEnemy', 'playing', 'gameOver'];
 
 const emptyKillBoard = {
   /* eslint-disable camelcase */
@@ -25,7 +25,6 @@ const emptyKillBoard = {
 
 const ISTClicker = () => {
   const [gameState, setGameState] = useState(gameStates[0]);
-  const [starting, setStarting] = useState(false);
   const [enemy, setEnemy] = useState(null);
   const [remainingTime, setRemainingTime] = useState(45);
   const [timerIntervalId, setTimerIntervalId] = useState(-1);
@@ -37,14 +36,6 @@ const ISTClicker = () => {
   useEffect(() => () => {
     clearInterval(timerIntervalId);
   }, []);
-
-  const handleStart = () => {
-    setStarting(true);
-    setTimeout(() => {
-      setStarting(false);
-      setGameState('firstEnemy');
-    }, 1500);
-  };
 
   const handleEnemyDeath = (enemy) => {
     setKillBoard((killBoard) => ({
@@ -90,15 +81,10 @@ const ISTClicker = () => {
     <div className={styles.eGameWrapper}>
 
       {gameState === 'playing' && (<div className={cn(styles.eTimer, {
-        [styles.mMid]: remainingTime <= 15 && remainingTime > 5,
         [styles.mLow]: remainingTime <= 5,
       })}>
-        {remainingTime}
+        Temps restant : {remainingTime}
       </div>)}
-
-      {gameState === 'initialState' && (
-        <button onClick={handleStart} className={cn(styles.eButton, { [styles.mHide]: starting, [styles.mAbsolute]: true, [styles.mCenter]: true })}>Jouer</button>
-      )}
 
       {gameState === 'firstEnemy' && (
         <Enemy onDeath={handleFirstEnemyDeath} center/>
