@@ -7,6 +7,15 @@
     align-items:center;
 
 }
+.pseudo {
+    width:8vw;
+}
+.gameID {
+    width:8vw;
+}
+.score {
+    width:8vw;
+}
 .leaderboard{
     color:white;
     width:100%;
@@ -19,9 +28,12 @@
 .button {
     margin-right:1vh;
 }
+.button:hover{
+    color:red;
+}
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
     .bar{
-        width:50vw;
+        width:80vw;
     }
 }

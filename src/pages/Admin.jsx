@@ -1,44 +1,36 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import api from '../api';
 import PseudoBar from '../components/PseudoBar';
 import styles from 'assets/style/Admin.module.scss';
 const Admin = () => {
-  const names = [
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    },
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    },
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    },
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    },
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    },
-    {
-      username: 'coucou',
-      gameID: 'yruv',
-      score: 10,
-    }
-  ];
+  const [scores, setScores] = useState([]);
+
+  const loadScores = () => {
+    api.admin.listScores().then((data) => {
+      setScores(data);
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
+
+  useEffect(() => {
+    loadScores();
+  }, []);
+
+  const deleteScore = (id) => {
+    api.admin.deleteScore(id)
+      .then(() => {
+        loadScores();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <main className={styles.background}>
       <div className={styles.wrapper}>
-        {names.map((pseudos) => <PseudoBar key={Date.now()} pseudo={pseudos.username} gameID={pseudos.gameID} score={pseudos.score}/>
-        )}
+        {scores.map((score, index) => <PseudoBar key={index} onClick={() => deleteScore(score.id)} {...score} />)}
       </div>
     </main>
   );

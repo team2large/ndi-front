@@ -3,6 +3,7 @@ import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';
 import { Route, Routes } from 'react-router-dom';
 import GameRules from './pages/GameRules';
+import Admin from './pages/Admin';
 
 const App = () => (
   <Routes>
