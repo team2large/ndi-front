@@ -23,7 +23,7 @@ const Home = () => {
     <div className={mainStyles.main}>
       <main>
         <header>
-          <h1>Le sida ça s&apos;efface pas</h1>
+          <h1>No mISTery</h1>
         </header>
         <div className={styles.container}>
           <div className={styles.games}>
