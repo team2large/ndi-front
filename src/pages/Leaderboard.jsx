@@ -4,7 +4,6 @@ import { AppContext } from 'context/AppContext';
 import arrow from '../assets/images/gamerules/playButton.png';
 import api from 'api';
 import styles from 'assets/style/leaderboard.module.scss';
-import mainStyles from 'assets/style/main.module.scss';
 
 const Leaderboard = () => {
   const { currentGame, changeCurrentGame, gamesLoaded, currentScore } = useContext(AppContext);
@@ -72,13 +71,15 @@ const Leaderboard = () => {
         <header className={styles.name}> Jeu non trouvé</header>
       )}
       <p className={styles.leaderboardName}>Leaderboard</p>
-      { leaderboard && leaderboard.map((item, index) => (
-        <div key={index} className={styles.leaderboard}>
-          <p className={styles.ranking}>#{index + 1}</p>
-          <p className={styles.user}>{item?.username}</p>
-          <p className={styles.score}>{item?.score}</p>
-        </div>
-      ))}
+      <div className={styles.contentWrapper}>
+        { leaderboard && leaderboard.map((item, index) => (
+          <div key={index} className={styles.leaderboard}>
+            <p className={styles.ranking}>#{index + 1}</p>
+            <p className={styles.user}>{item?.username}</p>
+            <p className={styles.score}>{item?.score}</p>
+          </div>
+        ))}
+      </div>
       <Link className={styles.bottomContent} to={'/'}>
         <img src={arrow} />
         <p>Accueil</p>
