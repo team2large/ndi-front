@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Hépatite B",
+    "asset": "hepatite_b"
+  },
+  {
+    "name": "Herpes génital",
+    "asset": "herpes_genital"
+  },
+  {
+    "name": "VIH",
+    "asset": "vih"
+  },
+  {
+    "name": "HPV",
+    "asset": "hpv"
+  },
+  {
+    "name": "Chlamydiae",
+    "asset": "chlamydiae"
+  },
+  {
+    "name": "Gonorrhée",
+    "asset": "gonorrhee"
+  },
+  {
+    "name": "Trichonomase",
+    "asset": "trichonomase"
+  },
+  {
+    "name": "Morpion",
+    "asset": "morpion"
+  },
+  {
+    "name": "Gale",
+    "asset": "gale"
+  }
+]
