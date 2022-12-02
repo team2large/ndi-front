@@ -10,7 +10,6 @@ const GOODANSWER = 'L\'europe a pas de capitale';
 
 const AdminAuth = () => {
   const [password, setPassword] = useState('');
-  const [result, setResult] = useState('');
   const [countries, setCountries] = useState([]);
   const hashedPassword = crypto.SHA256(password).toString();
   const [remainingTime, setRemainingTime] = useState((60 * 10));
@@ -22,7 +21,7 @@ const AdminAuth = () => {
 
 
   const handleSubmit = () => {
-    api.admin.login(hashedPassword).then((data) => {
+    api.admin.login(hashedPassword).then(() => {
       navigate('/admin');
     }).catch((error) => {
       console.log(error);
