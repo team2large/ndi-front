@@ -51,7 +51,7 @@ const Home = () => {
     <div className={mainStyles.main}>
       <main>
         {confetti && <ReactConfetti/>}
-        <header>
+        <header style={{ display: 'flex', justifyContent: 'center', gap: 12, alignItems: 'center', flexDirection: 'row' }}>
           <img style={{ opacity }}ref={dragRef} src='/img/games/depisteur/capote_normale_orange.png' alt='Préservatif' />
           <h1>No mISTery</h1>
           <img ref={drop} src='/img/games/depisteur/virus.png' alt='Infection Sexuellement Transmissible' />
