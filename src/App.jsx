@@ -1,4 +1,4 @@
-import Home from 'components/Home';
+import Home from 'pages/Home';
 import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';
 import { Route, Routes } from 'react-router-dom';

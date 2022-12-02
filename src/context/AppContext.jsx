@@ -10,10 +10,10 @@ export const AppProvider = ({ children }) => {
   const [currentScore, setCurrentScore] = useState(0);
 
   const palette = [
-    '#ff99c8',
-    '#fcf6bd',
-    '#d0f4de',
-    '#a9def9',
+    '#0E5652',
+    '#615518',
+    '#1E1861',
+    '#611818',
     '#e4c1f9'
   ];
 
