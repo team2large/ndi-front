@@ -37,7 +37,6 @@ const Game = () => {
             <>
               <h1 >{currentGame.name}</h1>
               <p>{currentGame.description}</p>
-              <Link to={`/games/${currentGame.slug}/leaderboard`}>Leaderboard</Link>
             </>
           ) : (
             <h1>Game not found</h1>
