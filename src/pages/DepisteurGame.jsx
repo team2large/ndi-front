@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext';
 import styles from 'assets/style/depisteurgame.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
 
-const NBR_OF_BOMB = 20;
+const NBR_OF_BOMB = 10;
 const NBR_OF_ROWS = 8;
 const MAX_LIVES = 6;
 
