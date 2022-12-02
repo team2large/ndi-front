@@ -1,0 +1,133 @@
+.eGameWrapper {
+  background: white;
+  border-radius: 16px;
+  width: 95%;
+  height: calc(85vh - 24px);
+  margin: 0 auto;
+  position: relative;
+}
+
+.eButton {
+  background: #6acea9;
+  font-size: 36px;
+  padding: .5em 1em;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+  transition: box-shadow .3s ease-in-out, opacity 1.5s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    box-shadow: 2px 4px 6px rgba(252, 246, 189, 0.15);
+  }
+}
+
+.mHide {
+  opacity: 0;
+}
+
+.eEnemy {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+  transition: opacity 1s ease-in-out;
+  z-index: 100;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  animation: breathing 5s ease-out infinite;
+}
+
+.eTimer {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  color: #40516A;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.mLow {
+  color: #e15b29;
+}
+
+.mCenter {
+  top: 50%;
+  left: 50%;
+}
+
+.mCenterTranslate {
+  transform: translate(-50%, -50%);
+}
+
+.mAbsolute {
+  position: absolute;
+}
+
+@keyframes breathing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.eGameOverStats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+
+
+  .eIstStatStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: calc(((80vw - (7 * 8px)) / 8));
+      aspect-ratio: 1;
+    }
+  }
+
+}
+
+.eSaveScoreWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  button {
+    transform: none;
+    position: unset;
+  }
+}
+
+.eEndGameScreen {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

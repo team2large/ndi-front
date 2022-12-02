@@ -1,18 +1,21 @@
-
 import CardsGame from 'pages/CardsGame';
-import Home from 'components/Home';
+import Home from 'pages/Home';
 import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';
 import { Route, Routes } from 'react-router-dom';
 import GameRules from './pages/GameRules';
+import Admin from './pages/Admin';
+import Game from './pages/Game';
 
 const App = () => (
   <Routes>
     <Route path='/' element={<Home />} />
     <Route path='/register' element={<Register />} />
     <Route path='/games/:gameId' element={<GameRules />}/>
+    <Route path='/games/:gameId/play' element={<Game />} />
     <Route path='/games/:gameId/leaderboard' element={<Leaderboard />} />
     <Route path='/games/memory_capote/play' element={<CardsGame />} />
+    <Route path='/admin' element={<Admin />} />
   </Routes>
 );
 export default App;

@@ -1,10 +1,15 @@
-
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AppContext } from 'context/AppContext';
 import Card from 'components/Card';
+import Modal from 'components/Modal';
 import styles from 'assets/style/cardsgame.module.scss';
 import dataCondoms from 'components/condoms.json';
 
 const CardsGame = () => {
+  const { setCurrentScore } = useContext(AppContext);
+  const modalRef = useRef();
+
   const ATTEMPT_MAX = 3;
   const NBR_CARDS = 9;
 
@@ -15,8 +20,13 @@ const CardsGame = () => {
   const [nbrGoodCard, setNbrGoodCard] = useState(0);
 
   useEffect(() => {
-    if (attempt === 0)
-      setIsFail(true);
+    if (attempt === 0) {
+      setCurrentScore(score);
+      modalRef.current.open(
+        'Vous avez perdu',
+        `Vous avez marqué au total : ${score} points`
+      );
+    }
   }, [attempt]);
 
   useEffect(() => {
@@ -65,7 +75,8 @@ const CardsGame = () => {
   };
 
   const shuffle = (array) => {
-    let currentIndex = array.length, randomIndex;
+    let currentIndex = array.length,
+      randomIndex;
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -81,8 +92,10 @@ const CardsGame = () => {
         if (c.isValid) {
           setScore(score + 1);
           setNbrGoodCard(nbrGoodCard - 1);
-        } else
+        } else {
+          modalRef.current.open('Mauvaise réponse', c.reasonNotValid);
           setAttempt(attempt - 1);
+        }
         return {
           ...c,
           clicked: true,
@@ -105,16 +118,21 @@ const CardsGame = () => {
             <p>{attempt} ❤️</p>
           </div>
         </div>
-        <div className={styles.cards_container}>
-          {cards.map((card) => (
-            <Card
-              data={card}
-              onClick={() => toggleCard(card.id)}
-              key={card.id}
-            />
-          ))}
-        </div>
+        {attempt === 0 ? (
+          <Link to='/games/memory_capote/leaderboard'>Classement</Link>
+        ) : (
+          <div className={styles.cards_container}>
+            {cards.map((card) => (
+              <Card
+                data={card}
+                onClick={() => toggleCard(card.id)}
+                key={card.id}
+              />
+            ))}
+          </div>
+        )}
       </div>
+      <Modal ref={modalRef} />
     </div>
   );
 };
