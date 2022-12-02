@@ -2,5 +2,21 @@
 @import "assets/style/utils";
 
 .game {
-    background-color: purple;
+    background-color: $backgroundColor;
+    box-sizing: border-box;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.header {
+    color: white;
+    padding: 4px 8px;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    a {
+        color: $tertiaryColor;
+    }
 }
