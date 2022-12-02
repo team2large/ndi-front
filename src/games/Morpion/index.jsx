@@ -18,14 +18,14 @@ const checkWin = (updatedPos, board) => {
   const { x, y } = updatedPos;
   let win = false;
   board.forEach((row) => {
-    win = row.every((cell) => cell === board[y][x]);
+    win = win || row.every((cell) => cell === board[y][x]);
   });
 
   if (win)
     return true;
 
   transpose(board).forEach((col) => {
-    win = col.every((cell) => cell === board[y][x]);
+    win = win || col.every((cell) => cell === board[y][x]);
   });
   if (win)
     return true;
@@ -38,7 +38,7 @@ const checkWin = (updatedPos, board) => {
     leftDiag.push(board[i][2 - i]);
   }
 
-  win = rightDiag.every((cell) => cell === board[y][x]) || leftDiag.every((cell) => cell === board[y][x]);
+  win = win || rightDiag.every((cell) => cell === board[y][x]) || leftDiag.every((cell) => cell === board[y][x]);
 
   return win;
 };
@@ -98,9 +98,13 @@ const Morpion = () => {
   return (
     <div className={styles.eGameWrapper}>
       { winner ? (
-        <h2>{winner} won {winner === boardValues.morpion ? ':(' : ':D'}</h2>
+        <h2><img style={{
+          width: '50px',
+        }} src={`/img/${winner}.png`}/> won {winner === boardValues.morpion ? ':(' : ':D'}</h2>
       ) : (
-        <h2>Current turn: {currentTurn}</h2>
+        <h2>C&apos;est au tour de : <img style={{
+          width: '50px',
+        }} src={`/img/${currentTurn}.png`}/></h2>
       )}
       <div className={styles.eMorpionGrid}>
         {getCells(board, handleCellClick)}
@@ -121,11 +125,13 @@ const Cell = ({ value, position, onClick }) => {
 
   const mapping = {
     [boardValues.empty]: '',
-    [boardValues.morpion]: 'X',
-    [boardValues.razor]: 'O',
+    [boardValues.morpion]: 'morpion',
+    [boardValues.razor]: 'razor',
   };
   return (
-    <div className={classes} onClick={onClick}>{mapping[value]}</div>
+    <div className={classes} onClick={onClick}>
+      <img src={`/img/${mapping[value]}.png`} alt={mapping[value]}/>
+    </div>
   );
 };
 export default Morpion;
