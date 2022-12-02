@@ -1,40 +1,59 @@
 .bar {
-  width: 30vw;
-  height: 5vh;
+  width: 80%;
+  min-width: 500px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   background: #5b5d82;
   box-shadow: 0px 4px 9px rgba(86, 116, 223, 0.25);
-  border-radius: 13px;
+  border-radius: 15px;
+  margin-top: 20px;
+  height: 70px;
 }
-.pseudo {
-  width: 8vw;
+
+.infosContainer {
+  width: 25%;
 }
-.gameID {
-  width: 8vw;
-}
-.score {
-  width: 8vw;
-}
+
 .leaderboard {
   color: white;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 2vh;
-}
-.button {
-  margin-right: 1vh;
-}
-.button:hover {
-  color: red;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-@media screen and (max-width: 900px) {
-  .bar {
-    width: 80vw;
+.infos {
+  font-family: "Poppins";
+  margin-left: 10px;
+}
+
+.subTitle {
+  color: #a5bdec;
+  font-family: "Poppins";
+}
+
+.trashContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 4px;
+  cursor: pointer;
+
+  >p {
+    font-family: "Poppins";
+    margin-left: 10px;
+    margin-right: 10px;
+    color: red;
   }
 }

@@ -1,17 +1,71 @@
 .background {
-  background-color:#fff;
-  height:100vh;
-  display:flex;
-  justify-content: center;
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  h1 {
-    color: aqua;
+.topContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  > h1 {
+    font-family: "Rubik Beastly";
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  > h2 {
+    font-family: "Poppins";
+    font-weight: normal;
+    text-align: center;
   }
 }
+
 .wrapper {
-  margin-top:3vh;
-  gap:3vh;
-  display:flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 80%;
+  scrollbar-color: #efdfff white;
+  display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+/* Ascenseur */
+.wrapper::-webkit-scrollbar-thumb {
+  background: #efdfff;
+  border-radius: 8px;
+}
+
+.bottomContent {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  > p {
+    font-family: "Rubik Beastly";
+    font-weight: normal;
+    text-align: center;
+    font-size: 3rem;
+    margin-left: 20px;
+  }
+}
+
+.bottomContent:visited {
+  color: inherit;
 }
