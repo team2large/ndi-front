@@ -1,3 +1,4 @@
+import CardsGame from 'pages/CardsGame';
 import Home from 'pages/Home';
 import Register from 'components/Register';
 import Leaderboard from 'pages/Leaderboard';
@@ -15,6 +16,7 @@ const App = () => (
     <Route path='/games/:gameId' element={<GameRules />}/>
     <Route path='/games/:gameId/play' element={<Game />} />
     <Route path='/games/:gameId/leaderboard' element={<Leaderboard />} />
+    <Route path='/games/memory_capote/play' element={<CardsGame />} />
     <Route path='/admin' element={<Admin />} />
     <Route path='/admin/login' element={<AdminAuth />} />
     <Route path='/games/depisteur/play' element={<DepisteurGame />} />
