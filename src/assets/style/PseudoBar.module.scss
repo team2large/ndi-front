@@ -1,39 +1,40 @@
 .bar {
-    width:30vw;
-    height:5vh;
-    border:0.2em solid white;
-    display:flex;
-    justify-content: space-around;
-    align-items:center;
-
+  width: 30vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #5b5d82;
+  box-shadow: 0px 4px 9px rgba(86, 116, 223, 0.25);
+  border-radius: 13px;
 }
 .pseudo {
-    width:8vw;
+  width: 8vw;
 }
 .gameID {
-    width:8vw;
+  width: 8vw;
 }
 .score {
-    width:8vw;
+  width: 8vw;
 }
-.leaderboard{
-    color:white;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left:2vh;
+.leaderboard {
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 2vh;
 }
 .button {
-    margin-right:1vh;
+  margin-right: 1vh;
 }
-.button:hover{
-    color:red;
+.button:hover {
+  color: red;
 }
 
-@media screen and (max-width: 900px){
-    .bar{
-        width:80vw;
-    }
+@media screen and (max-width: 900px) {
+  .bar {
+    width: 80vw;
+  }
 }

@@ -28,11 +28,12 @@ const Admin = () => {
   };
 
   return (
-    <main className={styles.background}>
+    <div className={styles.background}>
+      <h1>Admin</h1>
       <div className={styles.wrapper}>
         {scores.map((score, index) => <PseudoBar key={index} onClick={() => deleteScore(score.id)} {...score} />)}
       </div>
-    </main>
+    </div>
   );
 };
 export default Admin;
