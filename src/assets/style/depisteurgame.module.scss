@@ -1,0 +1,44 @@
+@use "assets/style/utils";
+@import "assets/style/utils";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+$size: 80px;
+
+table {
+    //border-collapse: collapse;
+    border-spacing: 2px;
+}
+
+td {
+    //border: 1px solid black;
+    width: $size;
+    height: $size;
+    text-align: center;
+    border-radius: 10px;
+
+    img {
+        width: $size;
+        height: $size;
+    }
+    
+
+    &:hover {
+        background-color: #494949;
+    }
+}
+
+.isHidden {
+    color: white;   
+    background: #303142;
+}
+
+.isRevealed {
+    color: white;
+    background: #525472;
+}
