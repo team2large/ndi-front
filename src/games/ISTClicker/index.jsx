@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import cn from 'classnames';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 import styles from './istclicker.module.scss';
 import enemies from './enemies.json';
 import Enemy from './Enemy';
@@ -10,7 +12,7 @@ const emptyKillBoard = {
   /* eslint-disable camelcase */
   chlamydiae: 0,
   hepatite_b: 0,
-  ghonorrhee: 0,
+  gonorrhee: 0,
   gale: 0,
   herpes: 0,
   hpv: 0,
@@ -28,6 +30,9 @@ const ISTClicker = () => {
   const [remainingTime, setRemainingTime] = useState(45);
   const [timerIntervalId, setTimerIntervalId] = useState(-1);
   const [killBoard, setKillBoard] = useState(emptyKillBoard);
+  const { setCurrentScore } = useContext(AppContext);
+  const navigate = useNavigate();
+  const { gameId } = useParams();
 
   useEffect(() => () => {
     clearInterval(timerIntervalId);
@@ -35,7 +40,7 @@ const ISTClicker = () => {
 
   const handleStart = () => {
     setStarting(true);
-    const to = setTimeout(() => {
+    setTimeout(() => {
       setStarting(false);
       setGameState('firstEnemy');
     }, 1500);
@@ -44,7 +49,7 @@ const ISTClicker = () => {
   const handleEnemyDeath = (enemy) => {
     setKillBoard((killBoard) => ({
       ...killBoard,
-      [enemy.asset]: (killBoard[enemy.asset] ?? 0) + 1,
+      [enemy.asset]: (killBoard?.[enemy.asset] ?? 0) + 1,
     }));
     setEnemy(null);
   };
@@ -63,6 +68,7 @@ const ISTClicker = () => {
     if (remainingTime <= 0) {
       clearInterval(timerIntervalId);
       setGameState('gameOver');
+      setCurrentScore(Object.values(killBoard).reduce((acc, val) => acc + val, 0));
     }
   }, [remainingTime]);
 
@@ -100,11 +106,19 @@ const ISTClicker = () => {
       {gameState === 'playing' && enemy}
 
       {gameState === 'gameOver' && (
-        <div className={styles.eGameOverStats}>
-          {enemies.map((e) => (
-
-            <img key={e.asset} src={`/img/games/ist_clicker/enemies/${e.asset}.png`}/>
-          ))}
+        <div className={styles.eEndGameScreen}>
+          <div className={styles.eGameOverStats}>
+            {enemies.map((e) => (
+              <div key={e.asset} className={styles.eIstStatStack}>
+                <img key={e.asset} src={`/img/games/ist_clicker/enemies/${e.asset}.png`} alt={e.name}/>
+                <p>{e.name} : {killBoard[e.asset]}</p>
+              </div>
+            ))}
+          </div>
+          <div>
+            <h3>Score : {Object.values(killBoard).reduce((acc, val) => acc + val, 0)}</h3>
+            <button onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
+          </div>
         </div>
       )
       }

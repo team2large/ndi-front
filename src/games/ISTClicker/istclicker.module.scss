@@ -31,10 +31,11 @@
 .eEnemy {
   position: absolute;
 
-    display: grid;
+  display: grid;
   place-items: center;
   transition: opacity 1s ease-in-out;
   z-index: 100;
+  cursor: pointer;
 
   img {
     width: 100%;
@@ -45,15 +46,15 @@
 }
 
 .eTimer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 5ch;
-    height: 52px;
-    display: grid;
-    place-items: center;
-    font-size: 52px;
-    font-weight: 600;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5ch;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  font-size: 52px;
+  font-weight: 600;
 }
 
 .mMid {
@@ -89,14 +90,29 @@
 
 .eGameOverStats {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  transform: translate(-50%, -50%);
+
+  .eIstStatStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: calc(((80vw - (7 * 8px)) / 8));
+      aspect-ratio: 1;
+    }
+  }
+
+}
+
+.eEndGameScreen {
   width: 90%;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-
-  img {
-    height: calc(90vw - (8 * 40px));
-    aspect-ratio: 1;
-  }
 }

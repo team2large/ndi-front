@@ -6,9 +6,9 @@ import styles from './istclicker.module.scss';
 const DEATH_THRESHOLD = 20;
 
 
-const Enemy = ({ onDeath, center = false, x = 50, y = 50 }) => {
+const Enemy = ({ onDeath, x = 50, y = 50 }) => {
   const [life, setLife] = useState(99 + Math.ceil(Math.random() * 60));
-  const [enemy, setEnemy] = useState(enemies[Math.floor(Math.random() * enemies.length)]);
+  const [enemy] = useState(enemies[Math.floor(Math.random() * enemies.length)]);
   const handleHit = () => {
     setLife((life) => life - 20);
   };
