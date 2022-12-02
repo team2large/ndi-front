@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import Modal from 'react-modal';
 import Card from 'components/Card';
 import styles from 'assets/style/cardsgame.module.scss';
 import dataCondoms from 'components/condoms.json';
@@ -11,7 +10,6 @@ const CardsGame = () => {
 
   const [score, setScore] = useState(0);
   const [attempt, setAttempt] = useState(ATTEMPT_MAX);
-  const [isWin, setIsWin] = useState(false);
   const [isFail, setIsFail] = useState(false);
   const [cards, setCards] = useState([]);
   const [nbrGoodCard, setNbrGoodCard] = useState(0);
@@ -98,13 +96,13 @@ const CardsGame = () => {
   return (
     <div className={styles.cards_game}>
       <div className={styles.wrapper}>
-        MemoCapote
+        <h1>MemoCapote</h1>
         <div className={styles.score}>
           <div className={styles.box}>
-            <p>Nombre de vie : {attempt}</p>
+            <p>{score} Points</p>
           </div>
           <div className={styles.box}>
-            <p>Nombre de points : {score}</p>
+            <p>{attempt} ❤️</p>
           </div>
         </div>
         <div className={styles.cards_container}>
