@@ -30,7 +30,7 @@ const Enemy = ({ onDeath, x = 50, y = 50 }) => {
   return (
     <div
       className={classNames}
-      style={{ width: life, height: life, left: `${x}%`, top: `${y}%` }}
+      style={{ width: life + 50, height: life + 50, left: `${x}%`, top: `${y}%` }}
       onClick={handleHit}
     >
       <img draggable='false' src={`/img/games/ist_clicker/enemies/${enemy.asset}_nom.png`} alt={enemy.name}/>

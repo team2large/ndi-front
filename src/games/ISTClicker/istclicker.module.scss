@@ -1,12 +1,14 @@
 .eGameWrapper {
-  border: 1px solid red;
+  background: white;
+  border-radius: 16px;
+  width: 95%;
   height: calc(100vh - 115.5px);
-  width: 100vw;
+  margin: 12px auto;
   position: relative;
 }
 
 .eButton {
-  background: #FCF6BDFF;
+  background: #6acea9;
   font-size: 36px;
   padding: .5em 1em;
   border-radius: 8px;
@@ -15,8 +17,6 @@
   transition: box-shadow .3s ease-in-out, opacity 1.5s ease-in-out;
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 
   &:hover {
@@ -47,27 +47,37 @@
 
 .eTimer {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 5ch;
-  height: 52px;
+  top: 8px;
+  right: 8px;
+  width: 3.5ch;
+  height: 3.5ch;
   display: grid;
   place-items: center;
   font-size: 52px;
   font-weight: 600;
+  background: #6acea9;
+  border-radius: 50%;
 }
 
 .mMid {
-  color: #eea647;
+  background: #eea647;
 }
 
 .mLow {
-  color: #e15b29;
+  background: #e15b29;
 }
 
 .mCenter {
   top: 50%;
   left: 50%;
+}
+
+.mCenterTranslate {
+  transform: translate(-50%, -50%);
+}
+
+.mAbsolute {
+  position: absolute;
 }
 
 @keyframes breathing {
@@ -93,7 +103,7 @@
   justify-content: space-between;
   width: 100%;
 
-  transform: translate(-50%, -50%);
+
 
   .eIstStatStack {
     display: flex;
@@ -106,6 +116,16 @@
     }
   }
 
+}
+
+.eSaveScoreWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  button {
+    transform: none;
+    position: unset;
+  }
 }
 
 .eEndGameScreen {
