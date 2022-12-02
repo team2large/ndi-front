@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AppContext } from 'context/AppContext';
 import Card from 'components/Card';
 import styles from 'assets/style/cardsgame.module.scss';
 import dataCondoms from 'components/condoms.json';
 
 const CardsGame = () => {
+  const { palette } = useContext(AppContext);
   // const ATTEMPT_MAX = 3;
 
   // const [score, setScore] = useState(null);
@@ -31,7 +33,7 @@ const CardsGame = () => {
     {
       id: 1,
       name: 'Préservatif qu\'il faut',
-      isValid: true,
+      isValid: false,
       slug: 'capote_pas_utilise_orange',
       reasonNotValid: 'bonsoir',
       date: new Date(),
@@ -64,7 +66,7 @@ const CardsGame = () => {
     {
       id: 4,
       name: 'Préservatif qu\'il faut',
-      isValid: true,
+      isValid: false,
       slug: 'capote_pas_utilise_orange',
       reasonNotValid: 'bonsoir',
       date: new Date(),
@@ -75,7 +77,7 @@ const CardsGame = () => {
     {
       id: 5,
       name: 'Préservatif qu\'il faut',
-      isValid: true,
+      isValid: false,
       slug: 'capote_pas_utilise_orange',
       reasonNotValid: 'bonsoir',
       date: new Date(),
@@ -86,7 +88,7 @@ const CardsGame = () => {
     {
       id: 6,
       name: 'Préservatif qu\'il faut',
-      isValid: true,
+      isValid: false,
       slug: 'capote_pas_utilise_orange',
       reasonNotValid: 'bonsoir',
       date: new Date(),
@@ -111,6 +113,24 @@ const CardsGame = () => {
     // validite
     // gerer le jeu
     // check game ended
+  };
+
+  const validateSelecion = () => {
+    const validCards = cards.filter((c) => c.isValid);
+    const selectedCards = cards.filter((c) => c.clicked);
+    const validSelectedCards = selectedCards.filter((c) => c.isValid);
+    const invalidSelectedCards = selectedCards.filter((c) => !c.isValid);
+    if (validCards.length !== selectedCards.length) {
+      alert(`Vous devez sélectionner ${validCards.length} cartes`);
+      return;
+    }
+
+    // check if all selected cards are valid
+    const allValid = selectedCards.every((c) => c.isValid);
+    if (allValid)
+      alert('Bravo, vous avez gagné');
+    else
+      alert(`${validSelectedCards.length} cartes sont valides, ${invalidSelectedCards.length} cartes sont invalides`);
   };
 
   function getRandomInt(max) {
@@ -161,6 +181,11 @@ const CardsGame = () => {
             />
           ))}
         </div>
+        <div
+          className={styles.button}
+          onClick={validateSelecion}
+          style={{ backgroundColor: palette[3] }}
+        >Valider la sélection</div>
       </div>
     </div>
   );

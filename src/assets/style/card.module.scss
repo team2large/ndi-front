@@ -1,5 +1,5 @@
 .card {
-    background-color: #444444;
+    background-color: #ff99c8;
     width: 200px;
     height: 200px;
     border-radius: 20px;
@@ -14,7 +14,7 @@
         .content {
             padding: 20px;
 	        text-align: center;
-	        transform: translateY(100px);
+	        transform: translateY(50px);
 	        opacity: 0;
 	        transition: 0.5s;
             p {
@@ -31,7 +31,7 @@
             transition: all 0.2s ease;
         }
         .content {
-            transform: translateY(-20px);
+            transform: translateY(0px);
 	        opacity: 1;
         }
     }
