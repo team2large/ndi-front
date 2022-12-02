@@ -180,7 +180,7 @@ const DepisteurGame = () => {
         <h1>Depisteur</h1>
         <div className={styles.container}>
           <div className={styles.lives}>
-            {lives}
+            {lives} / {MAX_LIVES}
           </div>
           <table>
             <tbody>

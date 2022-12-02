@@ -3,11 +3,12 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-$size: 64px;
+$size: 80px;
 
 table {
     //border-collapse: collapse;
@@ -33,7 +34,7 @@ td {
 }
 
 .isHidden {
-    color: white;
+    color: white;   
     background: #303142;
 }
 
