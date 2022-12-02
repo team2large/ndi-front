@@ -1,13 +1,17 @@
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Modal from 'components/Modal';
 import { AppContext } from '../context/AppContext';
 import styles from 'assets/style/depisteurgame.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
+import messages from 'pages/texte.json';
+
 
 const NBR_OF_BOMB = 50;
 const NBR_OF_ROWS = 8;
 const MAX_LIVES = 6;
+
 
 const createGrid = () => {
   const grid = [];
@@ -79,6 +83,11 @@ const setValues = (grid) => {
   return grid;
 };
 
+const getRandomMessage = () => {
+  const index = Math.floor(Math.random() * messages.length);
+  return messages[index];
+};
+
 const DepisteurGame = () => {
   const navigate = useNavigate();
   const [grid, setGrid] = useState(null);
@@ -86,6 +95,7 @@ const DepisteurGame = () => {
   const [revealedDiseases, setRevealedDiseases] = useState(null);
   const [moves, setMoves] = useState(0);
   const { currentScore, setCurrentScore } = useContext(AppContext);
+  const modalRef = useRef();
 
   const revealCase = (grid, row, col) => {
     setMoves(moves + 1);
@@ -130,8 +140,10 @@ const DepisteurGame = () => {
   };
 
   const checkDeath = () => {
-    if (lives <= 0)
+    if (lives <= 0) {
+      modalRef.current.open('Vous avez perdu...', getRandomMessage().message);
       return true;
+    }
     return false;
   };
 
@@ -232,6 +244,7 @@ const DepisteurGame = () => {
           </div>
         </div>
       </header>
+      <Modal ref={modalRef} />
     </div>
   );
 };
