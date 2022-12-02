@@ -64,6 +64,7 @@ const api = {
   admin: {
     listScores: () => get('/admin/scores'),
     deleteScore: (scoreId) => remove(`/admin/scores/${scoreId}`),
+    login: (password) => post('/admin/login', { password }),
   },
 };
 

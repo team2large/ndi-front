@@ -158,7 +158,6 @@
         "no-void": "error",
         "prefer-const": "error",
         "eol-last": 2,
-        "prefer-promise-reject-errors": "error",
         "space-before-blocks": 2,
         "func-call-spacing": 2,
         "function-call-argument-newline": [
