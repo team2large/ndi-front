@@ -5,6 +5,8 @@ $mainColor: #2c3e50;
 $secondarColor: #e74c3c;
 $tertiaryColor: #ecf0f1;
 
+$backgroundColor: #282c34;
+
 // Mixins
 @mixin flex($direction, $justify, $align) {
   display: flex;

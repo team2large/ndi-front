@@ -1,14 +1,30 @@
-import { useParams } from 'react-router-dom';
-import styles from 'assets/style/home.module.scss';
+import { Link, useParams } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { AppContext } from 'context/AppContext';
+import styles from 'assets/style/game.module.scss';
 
 const Game = () => {
+  const { currentGame, changeCurrentGame, gamesLoaded } = useContext(AppContext);
   const { gameId } = useParams();
 
+  useEffect(() => {
+    if (gamesLoaded)
+      changeCurrentGame(gameId);
+  }, [gamesLoaded]);
+
   return (
-    <div className={styles.home}>
+    <div className={styles.game}>
       <main>
         <header>
-          <h1>Nom du jeu {gameId}</h1>
+          {currentGame ? (
+            <>
+              <h1>{currentGame.name}</h1>
+              <p>{currentGame.description}</p>
+              <Link to={`/games/${currentGame.slug}/leaderboard`}>Leaderboard</Link>
+            </>
+          ) : (
+            <h1>Game not found</h1>
+          )}
         </header>
       </main>
     </div>
