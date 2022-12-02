@@ -1,5 +1,14 @@
+.virusContainer {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -5;
+}
+
 .virus {
-    animation: floating 6s ease-in-out infinite;
+    animation: floating 8s ease-in-out infinite;
 
     &#v1 {
         top: 0%;
@@ -7,6 +16,7 @@
         position: absolute;
         z-index: -5;
         width: 300px;
+        animation-delay: 0s;
     }
 
     &#v2 {
@@ -15,14 +25,16 @@
         z-index: -5;
         position: absolute;
         width: 300px;
+        animation-delay: 1s;
     }
 
     &#v3 {
-        top: 80%;
+        top: 63%;
         left: 5%;
         position: absolute;
         z-index: -5;
         width: 300px;
+        animation-delay: 2s;
     }
 
     &#v4 {
@@ -31,6 +43,7 @@
         position: absolute;
         z-index: -5;
         width: 300px;
+        animation-delay: 3s;
     }
 
     &#v5 {
@@ -39,6 +52,25 @@
         z-index: -5;
         position: absolute;
         width: 300px;
+        animation-delay: 4s;
+    }
+
+    &#v6 {
+        top: 55%;
+        left: 30%;
+        z-index: -5;
+        position: absolute;
+        width: 300px;
+        animation-delay: 5s;
+    }
+
+    &#v7 {
+        top: 70%;
+        left: 60%;
+        z-index: -5;
+        position: absolute;
+        width: 300px;
+        animation-delay: 6s;
     }
 
     @keyframes floating {
@@ -47,7 +79,7 @@
         }
 
         50% {
-            transform: translate(0, 15px);
+            transform: translate(0, 30px);
         }
 
         100% {

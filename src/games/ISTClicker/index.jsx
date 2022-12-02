@@ -6,7 +6,7 @@ import styles from './istclicker.module.scss';
 import enemies from './enemies.json';
 import Enemy from './Enemy';
 
-const gameStates = ['initialState', 'firstEnemy', 'playing', 'gameOver'];
+const gameStates = ['firstEnemy', 'playing', 'gameOver'];
 
 const emptyKillBoard = {
   /* eslint-disable camelcase */
@@ -25,7 +25,6 @@ const emptyKillBoard = {
 
 const ISTClicker = () => {
   const [gameState, setGameState] = useState(gameStates[0]);
-  const [starting, setStarting] = useState(false);
   const [enemy, setEnemy] = useState(null);
   const [remainingTime, setRemainingTime] = useState(45);
   const [timerIntervalId, setTimerIntervalId] = useState(-1);
@@ -38,14 +37,6 @@ const ISTClicker = () => {
     clearInterval(timerIntervalId);
   }, []);
 
-  const handleStart = () => {
-    setStarting(true);
-    setTimeout(() => {
-      setStarting(false);
-      setGameState('firstEnemy');
-    }, 1500);
-  };
-
   const handleEnemyDeath = (enemy) => {
     setKillBoard((killBoard) => ({
       ...killBoard,
@@ -56,6 +47,7 @@ const ISTClicker = () => {
 
   const handleFirstEnemyDeath = () => {
     setTimeout(() => {
+      clearInterval(timerIntervalId);
       setGameState('playing');
       setRemainingTime(45);
       setTimerIntervalId(setInterval(() => {
@@ -89,15 +81,10 @@ const ISTClicker = () => {
     <div className={styles.eGameWrapper}>
 
       {gameState === 'playing' && (<div className={cn(styles.eTimer, {
-        [styles.mMid]: remainingTime <= 15 && remainingTime > 5,
         [styles.mLow]: remainingTime <= 5,
       })}>
-        {remainingTime}
+        Temps restant : {remainingTime}
       </div>)}
-
-      {gameState === 'initialState' && (
-        <button onClick={handleStart} className={cn(styles.eButton, { [styles.mHide]: starting })}>Jouer</button>
-      )}
 
       {gameState === 'firstEnemy' && (
         <Enemy onDeath={handleFirstEnemyDeath} center/>
@@ -106,7 +93,7 @@ const ISTClicker = () => {
       {gameState === 'playing' && enemy}
 
       {gameState === 'gameOver' && (
-        <div className={styles.eEndGameScreen}>
+        <div className={cn(styles.eEndGameScreen, { [styles.mCenterTranslate]: true })}>
           <div className={styles.eGameOverStats}>
             {enemies.map((e) => (
               <div key={e.asset} className={styles.eIstStatStack}>
@@ -115,9 +102,9 @@ const ISTClicker = () => {
               </div>
             ))}
           </div>
-          <div>
+          <div className={styles.eSaveScoreWrapper}>
             <h3>Score : {Object.values(killBoard).reduce((acc, val) => acc + val, 0)}</h3>
-            <button onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
+            <button className={styles.eButton} onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
           </div>
         </div>
       )

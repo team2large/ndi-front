@@ -1,5 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from 'context/AppContext';
+import Modal from 'components/Modal';
 import GameCard from '../components/GameCard';
 import styles from 'assets/style/home.module.scss';
 import mainStyles from 'assets/style/main.module.scss';
@@ -7,6 +9,15 @@ import virusStyles from 'assets/style/homeVirus.module.scss';
 
 const Home = () => {
   const { games } = useContext(AppContext);
+  const modalRef = useRef();
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    document.addEventListener('mousemove', (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    });
+  }, []);
 
   return (
     <div className={mainStyles.main}>
@@ -43,14 +54,24 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <img className={virusStyles.virus} id={virusStyles.v1} src={`/img/games/ist_clicker/enemies/gale.png`} />
-        <img className={virusStyles.virus} id={virusStyles.v2} src={`/img/games/ist_clicker/enemies/chlamydiae.png`} />
-        <img className={virusStyles.virus} id={virusStyles.v3} src={`/img/games/ist_clicker/enemies/gonorrhee.png`} />
-        <img className={virusStyles.virus} id={virusStyles.v4} src={`/img/games/ist_clicker/enemies/hepatite_b.png`} />
-        <img className={virusStyles.virus} id={virusStyles.v5} src={`/img/games/ist_clicker/enemies/morpion.png`} />
+        <div className={virusStyles.virusContainer} style={{ transform: `translate(${mousePosition.x / 100}px, ${mousePosition.y / 50}px) scale(${1 - (mousePosition.y / 40000)})` }}>
+          <img className={virusStyles.virus} id={virusStyles.v1} src={`/img/games/ist_clicker/enemies/gale.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v2} src={`/img/games/ist_clicker/enemies/chlamydiae.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v3} src={`/img/games/ist_clicker/enemies/gonorrhee.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v4} src={`/img/games/ist_clicker/enemies/hepatite_b.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v5} src={`/img/games/ist_clicker/enemies/morpion.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v6} src={`/img/games/ist_clicker/enemies/vih.png`} />
+          <img className={virusStyles.virus} id={virusStyles.v7} src={`/img/games/ist_clicker/enemies/hpv.png`} />
+        </div>
+        <Modal ref={modalRef} />
+        <button onClick={() => modalRef.current.open('Ceci est un titre', 'Ceci est un contenu')}>Open Modal</button>
         <footer>
-          <p>© 2022 - HTTP 413 - Team Too Large</p>
+          <p>
+            © 2022 - HTTP 413 - Team Too Large :<br />
+            <span>Anaelle - Guillaume - Célian - Marius - Youri - Tomm - Alexandre - Andréas - Valentin - Antoine - Hugo - Killian - Ethan - Lucas - Léo - Enzo - Ruben</span>
+          </p>
         </footer>
+        <Link className={styles.linkAdmin} to={`/admin`}>Admin</Link>
       </main>
     </div>
   );

@@ -3,17 +3,16 @@
 
 .game {
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 25px;
   transition: filter 0.2s, transform 0.2s;
   cursor: pointer;
-  color: #000000;
+  color: #232a35;
   will-change: transform;
   text-decoration: none;
   background: rgba( 239, 151, 151, 0.15 );
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
-  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   text-align: center;
 
@@ -51,6 +50,7 @@
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
   }
 }
