@@ -1,5 +1,7 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import styles from 'assets/style/depisteurgame.module.scss';
 
 const NBR_OF_BOMB = 10;
@@ -76,26 +78,34 @@ const setValues = (grid) => {
   return grid;
 };
 
-
 const DepisteurGame = () => {
+  const navigate = useNavigate();
   const [grid, setGrid] = useState(null);
   const [lives, setLives] = useState(MAX_LIVES);
   const [revealedDiseases, setRevealedDiseases] = useState(null);
+  const [moves, setMoves] = useState(0);
+  const { currentScore, setCurrentScore } = useContext(AppContext);
 
   const revealCase = (grid, row, col) => {
+    setMoves(moves + 1);
     let newGrid = JSON.parse(JSON.stringify(grid));
     const currentCase = newGrid[row][col];
     if (currentCase.isRevealed || currentCase.isFlagged)
       return newGrid;
     if (currentCase.isBacteria || currentCase.isVirus) {
       if (currentCase.isVirus)
-        setLives(lives - 3);
+        setLives(Math.max(lives - 3, 0));
       else
-        setLives(lives - 2);
+        setLives(Math.max(lives - 2, 0));
     }
     currentCase.isRevealed = true;
     newGrid = revealAdjacentCases(newGrid, row, col);
     setGrid(newGrid);
+    if (checkVictory(newGrid)) {
+      setCurrentScore(100 - moves);
+      console.log('Victory');
+      navigate('/games/depisteur/leaderboard');
+    }
   };
 
   const checkVictory = (grid) => {
@@ -207,6 +217,5 @@ const DepisteurGame = () => {
     </div>
   );
 };
-
 
 export default DepisteurGame;
