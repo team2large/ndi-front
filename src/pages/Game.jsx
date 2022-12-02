@@ -31,10 +31,10 @@ const Game = () => {
   return (
     <div className={styles.game}>
       <main>
-        <header>
+        <header className={styles.header}>
           {currentGame ? (
             <>
-              <h1>{currentGame.name}</h1>
+              <h1 >{currentGame.name}</h1>
               <p>{currentGame.description}</p>
               <Link to={`/games/${currentGame.slug}/leaderboard`}>Leaderboard</Link>
             </>

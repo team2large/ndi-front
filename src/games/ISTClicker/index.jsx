@@ -56,6 +56,7 @@ const ISTClicker = () => {
 
   const handleFirstEnemyDeath = () => {
     setTimeout(() => {
+      clearInterval(timerIntervalId);
       setGameState('playing');
       setRemainingTime(45);
       setTimerIntervalId(setInterval(() => {
@@ -96,7 +97,7 @@ const ISTClicker = () => {
       </div>)}
 
       {gameState === 'initialState' && (
-        <button onClick={handleStart} className={cn(styles.eButton, { [styles.mHide]: starting })}>Jouer</button>
+        <button onClick={handleStart} className={cn(styles.eButton, { [styles.mHide]: starting, [styles.mAbsolute]: true, [styles.mCenter]: true })}>Jouer</button>
       )}
 
       {gameState === 'firstEnemy' && (
@@ -106,7 +107,7 @@ const ISTClicker = () => {
       {gameState === 'playing' && enemy}
 
       {gameState === 'gameOver' && (
-        <div className={styles.eEndGameScreen}>
+        <div className={cn(styles.eEndGameScreen, { [styles.mCenterTranslate]: true })}>
           <div className={styles.eGameOverStats}>
             {enemies.map((e) => (
               <div key={e.asset} className={styles.eIstStatStack}>
@@ -115,9 +116,9 @@ const ISTClicker = () => {
               </div>
             ))}
           </div>
-          <div>
+          <div className={styles.eSaveScoreWrapper}>
             <h3>Score : {Object.values(killBoard).reduce((acc, val) => acc + val, 0)}</h3>
-            <button onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
+            <button className={styles.eButton} onClick={() => navigate(`/games/${gameId}/leaderboard`)}>Sauvegarder</button>
           </div>
         </div>
       )
