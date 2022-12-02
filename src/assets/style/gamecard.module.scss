@@ -1,0 +1,31 @@
+@use "assets/style/utils";
+@import "assets/style/utils";
+
+.game {
+    padding: 15px;
+    border-radius: 20px;
+    transition: filter 0.2s, transform 0.2s;
+    cursor: pointer;
+    color: #000000;
+    will-change: transform;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness(0.9);
+      transform: scale(1.05);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    h3 {
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
