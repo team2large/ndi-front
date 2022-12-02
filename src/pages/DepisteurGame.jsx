@@ -8,7 +8,7 @@ import mainStyles from 'assets/style/main.module.scss';
 import messages from 'pages/texte.json';
 
 
-const NBR_OF_BOMB = 50;
+const NBR_OF_BOMB = 10;
 const NBR_OF_ROWS = 8;
 const MAX_LIVES = 6;
 
