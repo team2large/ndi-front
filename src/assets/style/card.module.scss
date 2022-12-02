@@ -1,5 +1,5 @@
 .card {
-    background-color: #ff99c8;
+    background-color: #5B5D82;
     width: 200px;
     height: 200px;
     border-radius: 20px;
@@ -28,6 +28,7 @@
     .card__inner:hover {
         .image {
             filter: blur(4px);
+            transform: scale(1.1);
             transition: all 0.2s ease;
         }
         .content {

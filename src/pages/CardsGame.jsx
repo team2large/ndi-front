@@ -1,32 +1,34 @@
 
-import React, { useContext, useEffect, useState } from 'react';
-import { AppContext } from 'context/AppContext';
+import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 import Card from 'components/Card';
 import styles from 'assets/style/cardsgame.module.scss';
 import dataCondoms from 'components/condoms.json';
 
 const CardsGame = () => {
-  const { palette } = useContext(AppContext);
-
   const ATTEMPT_MAX = 3;
   const NBR_CARDS = 9;
 
-  const [score, setScore] = useState(null);
-  const [attempt, setAttempt] = useState(0);
+  const [score, setScore] = useState(0);
+  const [attempt, setAttempt] = useState(ATTEMPT_MAX);
   const [isWin, setIsWin] = useState(false);
+  const [isFail, setIsFail] = useState(false);
   const [cards, setCards] = useState([]);
+  const [nbrGoodCard, setNbrGoodCard] = useState(0);
 
   useEffect(() => {
-    if (attempt === ATTEMPT_MAX) {
-      setIsWin(false);
-      setScore(0);
-    } else if (isWin)
-      setScore(ATTEMPT_MAX - attempt);
+    if (attempt === 0)
+      setIsFail(true);
   }, [attempt]);
 
   useEffect(() => {
     setCards(generateCards());
   }, []);
+
+  useEffect(() => {
+    if (nbrGoodCard === 0)
+      setCards(generateCards());
+  }, [nbrGoodCard]);
 
   const getRandomInt = (max) => Math.floor(Math.random() * max);
 
@@ -35,6 +37,7 @@ const CardsGame = () => {
   function generateCards() {
     let cards = [];
     const nbrGoodCard = getRandomIntBetween(1, NBR_CARDS / 2);
+    setNbrGoodCard(nbrGoodCard);
     for (let i = 0;i < nbrGoodCard;i++)
       cards.push(dataCondoms[0]);
 
@@ -77,40 +80,33 @@ const CardsGame = () => {
   const toggleCard = (cardId) => {
     const newCards = cards.map((c) => {
       if (c.id === cardId) {
+        if (c.isValid) {
+          setScore(score + 1);
+          setNbrGoodCard(nbrGoodCard - 1);
+        } else
+          setAttempt(attempt - 1);
         return {
           ...c,
-          clicked: !c.clicked,
+          clicked: true,
         };
       }
-
       return c;
     });
     setCards(newCards);
-    // validite
-    // gerer le jeu
-    // check game ended
-  };
-
-  const validateSelecion = () => {
-    const validCards = cards.filter((c) => c.isValid);
-    const selectedCards = cards.filter((c) => c.clicked);
-    const validSelectedCards = selectedCards.filter((c) => c.isValid);
-    const invalidSelectedCards = selectedCards.filter((c) => !c.isValid);
-    if (validCards.length !== selectedCards.length) {
-      alert(`Vous devez sélectionner ${validCards.length} cartes`);
-      return;
-    }
-
-    const allValid = selectedCards.every((c) => c.isValid);
-    if (allValid)
-      alert('Bravo, vous avez gagné');
-    else
-      alert(`${validSelectedCards.length} cartes sont valides, ${invalidSelectedCards.length} cartes sont invalides`);
   };
 
   return (
     <div className={styles.cards_game}>
       <div className={styles.wrapper}>
+        MemoCapote
+        <div className={styles.score}>
+          <div className={styles.box}>
+            <p>Nombre de vie : {attempt}</p>
+          </div>
+          <div className={styles.box}>
+            <p>Nombre de points : {score}</p>
+          </div>
+        </div>
         <div className={styles.cards_container}>
           {cards.map((card) => (
             <Card
@@ -120,11 +116,6 @@ const CardsGame = () => {
             />
           ))}
         </div>
-        <div
-          className={styles.button}
-          onClick={validateSelecion}
-          style={{ backgroundColor: palette[3] }}
-        >Valider la sélection</div>
       </div>
     </div>
   );

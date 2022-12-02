@@ -1,17 +1,15 @@
 import Tilt from 'react-parallax-tilt';
-import { useContext } from 'react';
-import { AppContext } from 'context/AppContext';
 import styles from 'assets/style/card.module.scss';
 
 const Card = ({ data, onClick }) => {
-  const { palette } = useContext(AppContext);
+  const borderColor = data.isValid ? '#3FCA90' : '#FF5D47';
 
   return (
     <Tilt>
       <div
         className={styles.card}
-        style={data.clicked ? { border: '3px solid purple', boxShadow: '0 0 50px purple' } : { border: `3px solid ${palette[0]}${55}` }}
-        onClick={onClick}
+        style={data.clicked ? { border: `5px solid ${borderColor}`, boxShadow: `0 0 50px ${borderColor}` } : { border: '5px solid #5B5D82', boxShadow: '0 0 50px #5B5D82' }}
+        onClick={!data.clicked && onClick}
       >
         <div className={styles.card__inner}>
           <div className={styles.image}>
