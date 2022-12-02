@@ -65,7 +65,7 @@ const Home = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.content}>
-            <h1>Bienvenue sur WEBSITE NAME !</h1>
+            <h1>Bienvenue sur No mISTery !</h1>
             <p>
               Parlons d&apos;un sujet tabou et pas très fun : les IST !
               Aujourd&apos;hui le véritable problème avec les infections sexuellement transmissibles ce n&apos;est pas les soins mais la prévention,
